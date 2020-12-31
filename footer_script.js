@@ -9,9 +9,5 @@ mainNav.firstElementChild.classList.add("mobile-padding-zero");
 document.getElementById("content").classList.add("mobile-padding-zero");
 document.getElementById("sidebar-left").classList.add("mobile-padding-zero");
 document.getElementsByClassName("site-footer")[0].classList.add("mobile-remove-rounding");
-
-// Remove large footer empty space after loading. (this code is ran in the footer)
-$('#footer-row').load(function() {
-	$('#footer-row').find("br").remove();
-    $('#footer-row').find(".widget_header_met_opmaak_content_1").eq(1).addClass("vertical-padding--none");
-});
+$('#footer-row').find("br").remove();
+$('#footer-row').find(".widget_header_met_opmaak_content_1").eq(1).addClass("vertical-padding--none");
