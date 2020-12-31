@@ -14,3 +14,8 @@
         border-bottom-right-radius: 0px;
     }
 }
+
+.vertical-padding--none {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
