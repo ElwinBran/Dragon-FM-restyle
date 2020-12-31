@@ -9,5 +9,8 @@ mainNav.firstElementChild.classList.add("mobile-padding-zero");
 document.getElementById("content").classList.add("mobile-padding-zero");
 document.getElementById("sidebar-left").classList.add("mobile-padding-zero");
 document.getElementsByClassName("site-footer")[0].classList.add("mobile-remove-rounding");
-$('#footer-row').find("br").remove();
-$('#footer-row').find(".widget_header_met_opmaak_content_1").eq(1).addClass("vertical-padding--none");
+
+$("#footer-row").ready(function() {
+	$("#footer-row").find("br").remove();
+    $("#footer-row").find(".widget_header_met_opmaak_content_1").eq(1).addClass("vertical-padding--none");
+});
