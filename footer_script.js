@@ -10,6 +10,10 @@ document.getElementById("content").classList.add("mobile-padding-zero");
 document.getElementById("sidebar-left").classList.add("mobile-padding-zero");
 document.getElementsByClassName("site-footer")[0].classList.add("mobile-remove-rounding");
 
+let buttonContainer = $(".widget_default_blok_2").find(".widget_button");
+buttonContainer.css("background-size", "cover");
+buttonContainer.find(".widget_button_tekst").css("width", "288px");
+
 $("#footer-row").ready(function() {
 	$("#footer-row").find("br").remove();
     $("#footer-row").find(".widget_header_met_opmaak_content_1").eq(1).addClass("vertical-padding--none");
