@@ -13,6 +13,9 @@
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
     }
+    .mobile-bottom-padding--none {
+        margin-bottom: 0px;
+    }
 }
 
 .vertical-padding--none {

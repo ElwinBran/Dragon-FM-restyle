@@ -1,5 +1,5 @@
 // Add style hardcoded
- $('head').append('<style type="text/css">@media(max-width:768px){.mobile-padding-zero{padding:0}.mobile-add-margin{margin-left:8px;margin-right:8px}.mobile-remove-rounding{border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0}}.vertical-padding--none{padding-top:0;padding-bottom:0}</style>');
+ $('head').append('<style type="text/css"> @media(max-width:768px){.mobile-padding-zero{padding:0}.mobile-add-margin{margin-left:8px;margin-right:8px}.mobile-remove-rounding{border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0}.mobile-bottom-padding--none{margin-bottom:0}}.vertical-padding--none{padding-top:0;padding-bottom:0}</style>');
 
 // Start applying new styling
 document.getElementsByClassName("container page-container")[0].classList.add("mobile-padding-zero");
@@ -17,4 +17,9 @@ buttonContainer.find(".widget_button_tekst").css("width", "288px");
 $("#footer-row").ready(function() {
 	$("#footer-row").find("br").remove();
     $("#footer-row").find(".widget_header_met_opmaak_content_1").eq(1).addClass("vertical-padding--none");
+});
+
+$("body").ready(function() {
+	$("body").addClass("mobile-bottom-padding--none");
+    $(".footer_compleet_onder").addClass("mobile-bottom-padding--none");
 });
