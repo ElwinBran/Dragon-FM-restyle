@@ -17,6 +17,11 @@
         margin-bottom: 0px;
     }
 }
+@media(min-width:9992px){
+    .no-handheld--rounding {
+        border-radius: 10px;
+    }
+}
 
 .vertical-padding--none {
     padding-top: 0px;
