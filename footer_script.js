@@ -1,5 +1,5 @@
 // Add style hardcoded
- $('head').append('<style type="text/css">@media(max-width:768px){.mobile-padding-zero{padding:0}.mobile-add-margin{margin-left:8px;margin-right:8px}.mobile-remove-rounding{border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0}.mobile-bottom-padding--none{margin-bottom:0}}@media(min-width:9992px){.no-handheld--rounding{border-radius:10px}}.vertical-padding--none{padding-top:0;padding-bottom:0}</style>');
+ $('head').append('<style type="text/css">@media(max-width:768px){.mobile-padding-zero{padding:0}.mobile-add-margin{margin-left:8px;margin-right:8px}.mobile-remove-rounding{border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0}.mobile-bottom-padding--none{margin-bottom:0}}@media(min-width:992px){.no-handheld--rounding{border-radius:10px}}.vertical-padding--none{padding-top:0;padding-bottom:0}</style>');
 
 // Start applying new styling
 document.getElementsByClassName("container page-container")[0].classList.add("mobile-padding-zero");
