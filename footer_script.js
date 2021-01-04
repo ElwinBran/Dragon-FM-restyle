@@ -4,8 +4,8 @@
 // Start applying new styling
 $(".container.page-container").addClass("small--no-padding");
 let mainNav = $(".row.main-navigation").first();
-mainNav.classList.add("small--no-padding");
-mainNav.firstElementChild.classList.add("small--no-padding");
+mainNav.addClass("small--no-padding");
+mainNav.children().first().addClass("small--no-padding");
 $("#content").addClass("small--no-padding");
 $("#sidebar-left").addClass("small--no-padding");
 $(".site-footer").addClass("small--no-rounding");
