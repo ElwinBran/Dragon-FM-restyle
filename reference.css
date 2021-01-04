@@ -1,29 +1,22 @@
 /* Simple mobile extra classes */
 @media(max-width:768px){
-    .mobile-padding-zero {
-        padding: 0;
+    .small--no-padding {
+        padding: 0px;
     }
-    .mobile-add-margin {
-        margin-left: 8px;
-        margin-right: 8px;
+    .small--no-rounding {
+        border-radius: 0px;
     }
-    .mobile-remove-rounding {
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-    }
-    .mobile-bottom-padding--none {
+    .small--no-bottom-margin {
         margin-bottom: 0px;
     }
 }
 @media(min-width:992px){
-    .no-handheld--rounding {
+    .from-medium--default-rounding {
         border-radius: 10px;
     }
 }
 
-.vertical-padding--none {
+.remove-vertical-padding {
     padding-top: 0px;
     padding-bottom: 0px;
 }
