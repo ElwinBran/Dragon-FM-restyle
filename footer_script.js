@@ -1,5 +1,5 @@
 // Add styling hardcoded
-jQuery("head").append('<style type="text/css">@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}.remove-vertical-padding{padding-top:0;padding-bottom:0}</style>');
+jQuery("head").append('<style type="text/css">@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}</style>');
 
 function recenterChatButton(styleVariables) {
     //here should be code to handle extra overrides. Mappings must be exported in the API.
@@ -37,9 +37,69 @@ function removeMobileFooterPadding() {
 function removeMobileFooterRounding() {
     jQuery(".site-footer").addClass("small--no-rounding");
 }
+function fullSizeHeaderBanner(styleVariables) {
+    let backVar = "#57007F"; // Default
+    if(!(styleVariables === undefined)) {
+        if(styleVariables.size != 0) {
+            let bannerBackgroundOverride = "";
+            let temp;
+            let doUserOverride = false;
+            temp = styleVariables.get("banner-background-color");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-image");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-position");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-size");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-repeat");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-origin");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-clip");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            temp = styleVariables.get("banner-background-attachment");
+            if(!(temp === undefined)) {
+                bannerBackgroundOverride += temp;
+                doUserOverride = true;
+            }
+            if(doUserOverride) {
+                backVar = temp;
+            }
+        }
+    }
+    jQuery("header").ready(function(){
+        jQuery("body").prepend('<div id="override-banner" role="banner" style="background:' + backVar + ';"><div class="container"></div></div>');
+        jQuery(".navbar.navbar-default").find("img").appendTo("#override-banner > .container");
+        jQuery("header").removeAttr("role");
+        jQuery(".row.row-with-vspace.site-branding").remove();
+        jQuery("header").find(".textwidget.custom-html-widget").addClass("remove-padding remove-margin");
+    });
+}
 
 var latestBody = [removeMobileBodyPadding];
-var latestHeader = [removeMobileHeaderPadding];
+var latestHeader = [fullSizeHeaderBanner];
 var latestContent = [removeMobileContentPadding];
 var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, addPlayerRounding];
 var latestFooter = [removeMobileFooterPadding, removeMobileFooterRounding];
