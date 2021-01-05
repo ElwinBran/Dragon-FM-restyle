@@ -16,6 +16,10 @@
     }
 }
 
+.remove-rounding {
+    border-radius: 0px;
+}
+
 .remove-padding {
     padding: 0px;
 }

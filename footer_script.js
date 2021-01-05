@@ -1,5 +1,5 @@
 // Add styling hardcoded
-jQuery("head").append('<style type="text/css">@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}</style>');
+jQuery("head").append('<style type="text/css">@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}.remove-rounding{border-radius:0}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}</style>');
 
 function recenterChatButton(styleVariables) {
     //here should be code to handle extra overrides. Mappings must be exported in the API.
@@ -97,12 +97,23 @@ function fullSizeHeaderBanner(styleVariables) {
         jQuery("header").find(".textwidget.custom-html-widget").addClass("remove-padding remove-margin");
     });
 }
+function moveFooterFullyDown() {
+    jQuery("footer").ready(function(){
+        jQuery("footer").appendTo("body");
+    });
+}
+function removeFooterRounding() {
+    jQuery("footer").addClass("remove-rounding");
+}
+function removeBodyOnlyMargin() {
+    jQuery("body").addClass("remove-margin");
+}
 
-var latestBody = [removeMobileBodyPadding];
+var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner];
 var latestContent = [removeMobileContentPadding];
 var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, addPlayerRounding];
-var latestFooter = [removeMobileFooterPadding, removeMobileFooterRounding];
+var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown];
 
 //
 // tasks: a list of functions to perform
