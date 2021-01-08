@@ -108,11 +108,20 @@ function removeFooterRounding() {
 function removeBodyOnlyMargin() {
     jQuery("body").addClass("remove-margin");
 }
+function moveClockIntoPlayer() {
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").prependTo("#sidebar-left > .widget_default_blok_1:eq(0)");
+}
+function moveChatWidgetIntoPlayer() {
+    let chatBlock = jQuery("#sidebar-left > .widget_default_blok_1:eq(1)");
+    chatBlock.children().appendTo("#sidebar-left > .widget_default_blok_1:eq(0)");
+    chatBlock.remove();
+}
 
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner];
 var latestContent = [removeMobileContentPadding];
-var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, addPlayerRounding];
+var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, 
+    moveClockIntoPlayer, moveChatWidgetIntoPlayer, addPlayerRounding];
 var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown];
 
 //
