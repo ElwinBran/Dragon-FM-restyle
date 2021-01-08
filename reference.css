@@ -16,6 +16,16 @@
     }
 }
 
+@media(max-width:991px){
+    .medium--white-background {
+        background-color: #FFFFFF;
+    }
+
+    .medium--black-text {
+        color: #000000;
+    }
+}
+
 .remove-rounding {
     border-radius: 0px;
 }

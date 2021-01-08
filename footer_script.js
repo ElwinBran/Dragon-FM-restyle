@@ -1,5 +1,5 @@
 // Add styling hardcoded
-jQuery("head").append('<style type="text/css">@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}.remove-rounding{border-radius:0}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}</style>');
+jQuery("head").append('<style type="text/css">@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}@media(max-width:991px){.medium--white-background{background-color:#fff}.medium--black-text{color:#000}}.remove-rounding{border-radius:0}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}</style>');
 
 function recenterChatButton(styleVariables) {
     //here should be code to handle extra overrides. Mappings must be exported in the API.
@@ -116,12 +116,16 @@ function moveChatWidgetIntoPlayer() {
     chatBlock.children().appendTo("#sidebar-left > .widget_default_blok_1:eq(0)");
     chatBlock.remove();
 }
+function restyleClockResponsive() {
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass("medium--white-background medium--black-text");
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().css("color", "");
+}
 
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner];
 var latestContent = [removeMobileContentPadding];
 var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, 
-    moveClockIntoPlayer, moveChatWidgetIntoPlayer, addPlayerRounding];
+    moveClockIntoPlayer, moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive];
 var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown];
 
 //
