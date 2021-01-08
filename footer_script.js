@@ -116,9 +116,32 @@ function moveChatWidgetIntoPlayer() {
     chatBlock.children().appendTo("#sidebar-left > .widget_default_blok_1:eq(0)");
     chatBlock.remove();
 }
-function restyleClockResponsive() {
-    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass("medium--white-background medium--black-text");
-    jQuery("#sidebar-left").find(".PMT_KLOK_widget").children().first().css("color", "");
+function restyleClockResponsive(styleVariables) {
+    let restyleClasses = "medium--white-background medium--black-text"; // Default
+    let textColor = ""; // Default
+    let textSize = "2em"; // Default
+    if(!(styleVariables === undefined)) {
+        if(styleVariables.size != 0) {
+            let temp;
+            temp = styleVariables.get("desktop-clock-text-color");
+            if(!(temp === undefined)) {
+                textColor = temp;
+            }
+            temp = undefined;
+            temp = styleVariables.get("clock-font-size");
+            if(!(temp === undefined)) {
+                textSize = temp;
+            }
+            temp = undefined;
+            temp = styleVariables.get("clock-restyle-classes");
+            if(!(temp === undefined)) {
+                restyleClasses = temp;
+            }
+        }
+    }
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass(restyleClasses);
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").children().first().css(
+        {"color": textColor, "font-size": textSize});
 }
 
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
