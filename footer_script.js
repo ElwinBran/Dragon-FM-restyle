@@ -118,7 +118,7 @@ function moveChatWidgetIntoPlayer() {
 }
 function restyleClockResponsive() {
     jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass("medium--white-background medium--black-text");
-    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().css("color", "");
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").children().first().css("color", "");
 }
 
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
