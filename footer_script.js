@@ -143,12 +143,26 @@ function restyleClockResponsive(styleVariables) {
     jQuery("#sidebar-left").find(".PMT_KLOK_widget").children().first().css(
         {"color": textColor, "font-size": textSize});
 }
+function changeChatButtonText(styleVariables) {
+    let newText = "Dragon FM Chat"; // Default
+    if(!(styleVariables === undefined)) {
+        if(styleVariables.size != 0) {
+            let temp;
+            temp = styleVariables.get("chat-button-text");
+            if(!(temp === undefined)) {
+                newText = temp;
+            }
+        }
+    }
+    let buttonContainer = jQuery(".widget_default_blok_2").find(".widget_button");
+    buttonContainer.find("a").first().text(newText);
+}
 
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner];
 var latestContent = [removeMobileContentPadding];
-var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, 
-    moveClockIntoPlayer, moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive];
+var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, moveClockIntoPlayer, 
+    moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatButtonText];
 var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown];
 
 //
