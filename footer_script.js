@@ -226,6 +226,16 @@ function responsiveDesignMenuOverhaul() {
         });
     });
 }
+function fixExternalContent(){
+    jQuery("#content").ready(function() {
+        jQuery("#content").find("section[data-kc-fullwidth='row']").css({
+            "left": "unset",
+            "padding-left": "unset",
+            "padding-right": "unset"
+        });
+    });
+}
+
 function removeResponsiveMenuSelect(){
     jQuery(".responsiveMenuSelect").remove();
 }
@@ -241,7 +251,7 @@ function setViewToPageTop(){
 
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
-var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass];
+var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent];
 var latestPlayer = [removeMobilePlayerPadding, recenterChatButton, moveClockIntoPlayer, 
     moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatButtonText];
 var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown];
