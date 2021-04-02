@@ -50,11 +50,7 @@
         display: none;
     }
 }
-@media(min-width:769px){
-    .from-medium--hidden {
-        display: none;
-    }
-}
+
 
 @media(min-width:992px){
     .from-medium--default-rounding {
@@ -306,4 +302,109 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* New sticky footer features*/
+@media(max-width:768px){
+    div#playbtn.jp-play.play-button--transparent {
+        background: url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browsePlayBig.png) center center no-repeat;
+    }
+    div#stopbtn.jp-pause.pause-button--transparent {
+        background: url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browseStop.png) center center no-repeat;
+    }
+    footer.footer-player-dock {
+        margin-top: calc(8px + 8px + 1.4em + 1.4em);
+        /* Firefox */
+        margin-top: -moz-calc(8px + 8px + 1.4em + 1.4em);
+        /* WebKit */
+        margin-top: -webkit-calc(8px + 8px + 1.4em + 1.4em);
+        /* Opera */
+        margin-top: -o-calc(8px + 8px + 1.4em + 1.4em);
+    }
+    .widget_default_blok_1--hide-mobile {
+        height: 0px;
+        max-height: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        background: none !important;
+    }
+    .player-widget__button {
+        position: fixed;
+        bottom: calc(((8px + 8px + 1.8em + 1.8em) / 2) - 50px); /* pre-calc 50 based on playbutton height*/
+        /* Firefox */
+        bottom: -moz-calc(((8px + 8px + 1.8em + 1.8em) / 2) - 50px);
+        /* WebKit */
+        bottom: -webkit-calc(((8px + 8px + 1.8em + 1.8em) / 2) - 50px);
+        /* Opera */
+        bottom: -o-calc(((8px + 8px + 1.8em + 1.8em) / 2) - 50px);
+        z-index: 951;
+        left: -15px;
+    }
+}
+
+.player-widget__display {
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px;
+    font-weight: 400 !important;
+}
+  
+.player-widget__display > * {
+    display: inline-block;
+    position: relative;
+}
+
+/* uuh  somehow layout that the bars are oriented full from right to left*/
+
+.player-footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 950;
+    min-height: 75px;/*from play button*/
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 75px;/*from play button*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(87,0,127);
+    /*background: linear-gradient(0deg, rgba(87,0,127,1) 0%, rgba(35,0,51,1) 11%, rgba(35,0,51,1) 89%, rgba(87,0,127,1) 100%);*/
+    -webkit-box-shadow: rgb(0 0 0 / 50%) 0 -6px 11px 0;
+    -moz-box-shadow: rgb(0 0 0 / 50%) 0 -6px 11px 0;
+    box-shadow: rgb(0 0 0 / 50%) 0 -6px 11px 0;
+}
+
+.player-footer--docked {
+    -webkit-box-shadow: rgb(0 0 0 / 50%) 0 -10px 11px 0;
+    -moz-box-shadow: rgb(0 0 0 / 50%) 0 -10px 11px 0;
+    box-shadow: rgb(0 0 0 / 50%) 0 -10px 11px 0;
+}
+
+.player-footer__display {
+    overflow: hidden;
+    white-space: nowrap;
+    background: none;
+    width: 100%;
+}
+
+.player-footer__display > * {
+    display: inline-block;
+    position: relative;
+    font-size: 1.4em;
+    font-weight: normal;
+    font-family: verdana;
+    font-style: italic;
+    color: white;
+}
+
+@media(min-width:769px){
+    .from-medium--hidden {
+        display: none;
+    }
 }
