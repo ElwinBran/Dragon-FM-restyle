@@ -280,19 +280,19 @@
 }
 
 .button--highlight {
-    background-color: #3188E7;
+    background-color: #57007F;
 }
 
 #floatingChatButton {
   cursor: pointer;
   border-radius: 50%;
-  min-width: 80px;
-  min-height: 80px;
-  width: 80px;
+  min-width: 60px;
+  min-height: 60px;
+  width: 60px;
   z-index: 997; /* Just below menu */ 
   position: fixed;
-  bottom: 20px;
-  right: 12px;
+  bottom: 24px;
+  right: 24px;
   -webkit-box-shadow: 0px 10px 25px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 10px 25px -3px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 25px -3px rgba(0,0,0,0.75);
