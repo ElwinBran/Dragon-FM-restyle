@@ -248,7 +248,7 @@ function setViewToPageTop(){
     window.scrollTo(0, 0);
 }
 function removeRegularMobileChat() {
-    jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").eq(2).addClass("small--hidden");
+    jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").last().addClass("small--hidden");
     jQuery("#sidebar-left > .widget_default_blok_1 > .widget_default_blok_2").addClass("small--hidden");
 }
 function addFloatingChatButton() {
