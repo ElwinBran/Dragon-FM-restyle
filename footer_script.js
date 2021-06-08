@@ -1,5 +1,5 @@
 // Add styling hardcoded
-jQuery("head").append('<style type="text/css">.hamburger-toggler{position:fixed;top:calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-moz-calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-webkit-calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-o-calc(((85vw * (264 / 1500)) - 36px)/ 2);right:calc((15vw - 36px)/ 2);right:-moz-calc((15vw - 36px)/ 2);right:-webkit-calc((15vw - 36px)/ 2);right:-o-calc((15vw - 36px)/ 2);color:#fff;z-index:999;height:36px;width:36px;outline:0;cursor:pointer;display:flex;align-items:center;appearance:none;border:none;background:0 0;padding:0;text-align:unset}@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}.small--no-margin{margin:0}.small--display-block{display:block}.small--hidden{display:none}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}@media(max-width:991px){.medium--white-background{background-color:#fff}.medium--black-text{color:#000}}.remove-rounding{border-radius:0}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}.rotate--half{transform:rotate(180deg)}.header-menu-fix{width:100%}@media(max-width:768px){.sticky-banner{position:fixed;box-shadow:rgba(0,0,0,.5) 0 3px 11px 0;z-index:1000}.header-menu-fix{width:85%}#content{margin-top:-moz-calc((85vw * (264 / 1500)) - 50px);margin-top:-webkit-calc((85vw * (264 / 1500)) - 50px);margin-top:-o-calc((85vw * (264 / 1500)) - 50px);margin-top:calc((85vw * (264 / 1500)) - 50px)}#menu-menu-1{margin:0 8px;font-size:1.4em}#menu-menu-1>li>a{font-weight:700}#navigationMenu{position:fixed;left:-100%;z-index:998;text-decoration:none;overflow:scroll;height:100%;color:#fff;background:#57007f;min-width:max(360px,80vw);min-height:calc(100vh - (85vw * (264 / 1500)));min-height:-moz-calc(100vh - (85vw * (264 / 1500)));min-height:-webkit-calc(100vh - (85vw * (264 / 1500)));min-height:-o-calc(100vh - (85vw * (264 / 1500)));top:calc(85vw * (264 / 1500));top:-moz-calc(85vw * (264 / 1500));top:-webkit-calc(85vw * (264 / 1500));top:-o-calc(85vw * (264 / 1500))}.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.open>a{background:#3188e7!important;-webkit-box-shadow:none!important;box-shadow:none!important}.navigation__menu{padding:24px 16px 8px 16px;display:flex;flex-direction:column;justify-content:center}}@media(min-width:769px){.margin-top-content-fix{margin-top:8px}.dropdown--responsive{min-width:160px;position:absolute;z-index:1000;font-weight:400;line-height:1.42857143;padding:0}li:hover>.dropdown--responsive{display:block}.dropdow__item--responsive{padding-right:5px;padding-left:5px;background-color:#57007f;border-bottom:1px solid #fff}.dropdow__item--responsive:first-child{border-radius:10px 10px 0 0}.dropdow__item--responsive:last-child{border-bottom:none;border-radius:0 0 10px 10px}}.hamburger-toggler span,.hamburger-toggler span::after,.hamburger-toggler span::before{position:absolute;content:"";width:36px;height:4.5px;background:#fafafa;border-radius:20px;transition:.5s cubic-bezier(.77,0,.175,1)}.hamburger-toggler span::before{top:-12px}.hamburger-toggler span::after{top:12px}.hamburger-toggler.active>span{background:0 0}.hamburger-toggler.active>span::after,.hamburger-toggler.active>span::before{background:#fff;top:0}.hamburger-toggler.active>span::before{transform:rotate(-225deg)}.hamburger-toggler.active>span::after{transform:rotate(225deg)}.lock-scroll{overflow:hidden}@keyframes navigationUnfoldShadowAnimation{0%{box-shadow:-25vw 0 300px 0 rgba(0,0,0,.5)}100%{box-shadow:60vw 0 20px 15px rgba(0,0,0,.5)}}@keyframes navigationFoldsShadowAnimation{0%{box-shadow:-25vw 0 300px 0 rgba(0,0,0,.5)}100%{box-shadow:30vw 0 20px 15px rgba(0,0,0,.5)}}.navigation-unfolds{animation-name:navigationUnfoldShadowAnimation;animation-duration:150ms;animation-iteration-count:1;animation-timing-function:linear;animation-fill-mode:forwards}.navigation-folds{animation-name:navigationFoldsShadowAnimation;animation-duration:.3s;animation-iteration-count:1;animation-direction:reverse;animation-timing-function:linear}.button--highlight{background-color:#57007f}#floatingChatButton{cursor:pointer;border-radius:50%;min-width:60px;min-height:60px;width:60px;z-index:997;position:fixed;bottom:24px;right:24px;-webkit-box-shadow:0 10px 25px -3px rgba(0,0,0,.75);-moz-box-shadow:0 10px 25px -3px rgba(0,0,0,.75);box-shadow:0 10px 25px -3px rgba(0,0,0,.75)}.center-contents{display:flex;align-items:center;justify-content:center}@media(max-width:768px){div#playbtn.jp-play.play-button--transparent{background:url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browsePlayBig.png) center center no-repeat}div#stopbtn.jp-pause.pause-button--transparent{background:url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browseStop.png) center center no-repeat}footer.footer-player-dock{margin-top:calc(8px + 8px + 1.4em + 1.4em);margin-top:-moz-calc(8px + 8px + 1.4em + 1.4em);margin-top:-webkit-calc(8px + 8px + 1.4em + 1.4em);margin-top:-o-calc(8px + 8px + 1.4em + 1.4em)}.widget_default_blok_1--hide-mobile{height:0;max-height:0;padding-bottom:0;margin-bottom:0;background:0 0!important}.player-widget__button{position:fixed;bottom:calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-moz-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-webkit-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-o-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);z-index:951;left:-15px}}.player-widget__display{white-space:nowrap;overflow:hidden;margin-left:auto;margin-right:auto;padding:4px;font-weight:400!important}.player-widget__display>*{display:inline-block;position:relative}.player-footer{position:fixed;bottom:0;left:0;right:0;z-index:950;min-height:75px;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:75px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#57007f;-webkit-box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0;-moz-box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0;box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0}.player-footer--docked{-webkit-box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0;-moz-box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0;box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0}.player-footer__display{overflow:hidden;white-space:nowrap;background:0 0;width:100%}.player-footer__display>*{display:inline-block;position:relative;font-size:1.4em;font-weight:400;font-family:verdana;font-style:italic;color:#fff}@media(min-width:769px){.from-medium--hidden{display:none}}</style>');
+jQuery("head").append('<style type="text/css">.hamburger-toggler{position:fixed;top:calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-moz-calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-webkit-calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-o-calc(((85vw * (264 / 1500)) - 36px)/ 2);right:calc((15vw - 36px)/ 2);right:-moz-calc((15vw - 36px)/ 2);right:-webkit-calc((15vw - 36px)/ 2);right:-o-calc((15vw - 36px)/ 2);color:#fff;z-index:999;height:36px;width:36px;outline:0;cursor:pointer;display:flex;align-items:center;appearance:none;border:none;background:0 0;padding:0;text-align:unset}@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}.small--no-margin{margin:0}.small--display-block{display:block}.small--hidden{display:none}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}@media(max-width:991px){.medium--white-background{background-color:#fff}.medium--black-text{color:#000}}.remove-rounding{border-radius:0}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}.rotate--half{transform:rotate(180deg)}.header-menu-fix{width:100%}@media(max-width:768px){.sticky-banner{position:fixed;box-shadow:rgba(0,0,0,.5) 0 3px 11px 0;z-index:1000}.header-menu-fix{width:85%}#content{margin-top:-moz-calc((85vw * (264 / 1500)) - 50px);margin-top:-webkit-calc((85vw * (264 / 1500)) - 50px);margin-top:-o-calc((85vw * (264 / 1500)) - 50px);margin-top:calc((85vw * (264 / 1500)) - 50px)}#menu-menu-1{margin:0 8px;font-size:1.4em}#menu-menu-1>li>a{font-weight:700}#navigationMenu{position:fixed;left:-100%;z-index:998;text-decoration:none;overflow:scroll;height:100%;color:#fff;background:#57007f;min-width:max(360px,80vw);min-height:calc(100vh - (85vw * (264 / 1500)));min-height:-moz-calc(100vh - (85vw * (264 / 1500)));min-height:-webkit-calc(100vh - (85vw * (264 / 1500)));min-height:-o-calc(100vh - (85vw * (264 / 1500)));top:calc(85vw * (264 / 1500));top:-moz-calc(85vw * (264 / 1500));top:-webkit-calc(85vw * (264 / 1500));top:-o-calc(85vw * (264 / 1500))}.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.open>a{background:#3188e7!important;-webkit-box-shadow:none!important;box-shadow:none!important}.navigation__menu{padding:24px 16px 8px 16px;display:flex;flex-direction:column;justify-content:center}}@media(min-width:769px){.margin-top-content-fix{margin-top:8px}.dropdown--responsive{min-width:160px;position:absolute;z-index:1000;font-weight:400;line-height:1.42857143;padding:0}li:hover>.dropdown--responsive{display:block}.dropdow__item--responsive{padding-right:5px;padding-left:5px;background-color:#57007f;border-bottom:1px solid #fff}.dropdow__item--responsive:first-child{border-radius:10px 10px 0 0}.dropdow__item--responsive:last-child{border-bottom:none;border-radius:0 0 10px 10px}}.hamburger-toggler span,.hamburger-toggler span::after,.hamburger-toggler span::before{position:absolute;content:"";width:36px;height:4.5px;background:#fafafa;border-radius:20px;transition:.5s cubic-bezier(.77,0,.175,1)}.hamburger-toggler span::before{top:-12px}.hamburger-toggler span::after{top:12px}.hamburger-toggler.active>span{background:0 0}.hamburger-toggler.active>span::after,.hamburger-toggler.active>span::before{background:#fff;top:0}.hamburger-toggler.active>span::before{transform:rotate(-225deg)}.hamburger-toggler.active>span::after{transform:rotate(225deg)}.lock-scroll{overflow:hidden}@keyframes navigationUnfoldShadowAnimation{0%{box-shadow:-25vw 0 300px 0 rgba(0,0,0,.5)}100%{box-shadow:60vw 0 20px 15px rgba(0,0,0,.5)}}@keyframes navigationFoldsShadowAnimation{0%{box-shadow:-25vw 0 300px 0 rgba(0,0,0,.5)}100%{box-shadow:30vw 0 20px 15px rgba(0,0,0,.5)}}.navigation-unfolds{animation-name:navigationUnfoldShadowAnimation;animation-duration:150ms;animation-iteration-count:1;animation-timing-function:linear;animation-fill-mode:forwards}.navigation-folds{animation-name:navigationFoldsShadowAnimation;animation-duration:.3s;animation-iteration-count:1;animation-direction:reverse;animation-timing-function:linear}.button--highlight{background-color:#57007f}#floatingChatButton{cursor:pointer;border-radius:50%;min-width:60px;min-height:60px;width:60px;z-index:997;position:fixed;bottom:24px;right:24px;-webkit-box-shadow:0 10px 25px -3px rgba(0,0,0,.75);-moz-box-shadow:0 10px 25px -3px rgba(0,0,0,.75);box-shadow:0 10px 25px -3px rgba(0,0,0,.75)}.center-contents{display:flex;align-items:center;justify-content:center}@media(max-width:768px){div#playbtn.jp-play.play-button--transparent{background:url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browsePlayBig.png) center center no-repeat}div#stopbtn.jp-pause.pause-button--transparent{background:url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browseStop.png) center center no-repeat}footer.footer-player-dock{margin-top:calc(8px + 8px + 1.4em + 1.4em);margin-top:-moz-calc(8px + 8px + 1.4em + 1.4em);margin-top:-webkit-calc(8px + 8px + 1.4em + 1.4em);margin-top:-o-calc(8px + 8px + 1.4em + 1.4em)}.widget_default_blok_1--hide-mobile{height:0;max-height:0;padding-bottom:0;margin-bottom:0;background:0 0!important}.player-widget__button{position:fixed;bottom:calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-moz-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-webkit-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-o-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);z-index:951;left:-15px}}.player-widget__display{white-space:nowrap;overflow:hidden;margin-left:auto;margin-right:auto;padding:4px;font-weight:400!important}.player-widget__display>*{display:inline-block;position:relative}.player-footer{position:sticky;bottom:0;z-index:950;min-height:75px;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:75px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#57007f;-webkit-box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0;-moz-box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0;box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0}.player-footer--docked{-webkit-box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0;-moz-box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0;box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0}.player-footer__display{overflow:hidden;white-space:nowrap;background:0 0;width:100%}.player-footer__display>*{display:inline-block;position:relative;font-size:1.4em;font-weight:400;font-family:verdana;font-style:italic;color:#fff}@media(min-width:769px){.from-medium--hidden{display:none}}</style>');
 
 function recenterChatButton(styleVariables) {
     //here should be code to handle extra overrides. Mappings must be exported in the API.
@@ -277,6 +277,43 @@ function replaceIFrameMarquee(styleVariables) {
     color:${songInformationTextColor} !important;
     font-style:${songInformationFontStyle};">Ophalen...</span></div>`);
 }
+
+function addMobilePlayer(styleVariables) {
+    if(jQuery("body").hasClass("home")) {//remember add negation
+        jQuery(".container.page-container").before(`<footer id="mobilePlayer" class="player-footer from-medium--hidden">
+        <div id="artistNameContainer" class="player-footer__display">
+            <span id="artistNameDisplay"></span>
+        </div>
+        <div id="songTitleContainer" class="player-footer__display">
+        <span id="songTitleDisplay"></span></footer>
+        </div>`);
+        jQuery("#jp_interface_1").addClass("player-widget__button");
+        //
+        /////// Surgical operation
+        //
+        jQuery("#playbtn").addClass("play-button--transparent");
+        jQuery("#stopbtn").addClass("pause-button--transparent");
+        //jQuery("footer.site-footer").addClass("footer-player-dock");
+        addMobilePlayerScroll();
+    }
+}
+function removeSidebarForMobile(styleVariables){
+    if(jQuery("body").hasClass("home")) {//remember add negation
+        //jQuery("#songContainerTop").ready(function(){
+        jQuery("#songContainerTop").addClass("small--hidden");
+        //});
+        jQuery(".now_playing_scroler.lazyloaded").addClass("small--hidden");
+        jQuery(".PMT_KLOK_widget").addClass("small--hidden");
+        jQuery(".DJ_planner_1").addClass("small--hidden");
+        jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").addClass("small--hidden");
+        let queryCache = jQuery("#sidebar-left > .widget_default_blok_1");
+        queryCache.addClass("widget_default_blok_1--hide-mobile");
+        queryCache = queryCache.children(".widget_default_blok_1");
+        queryCache.children("div").first().addClass("small--hidden");
+        queryCache.addClass("widget_default_blok_1--hide-mobile");
+        
+    }
+}
 function reinstateSongInformationUpdate(styleVariables){
     syncSongInformation(styleVariables);
     let loopTime = 10000;
@@ -300,13 +337,34 @@ function animateSongInformationSimple(styleVariables){
         }
     }, 1000);  
 }
+function animateSongInformationComplex(styleVariables){
+    let bootstrapProces;
+    jQuery("#songDisplayTop").css("left", "100%");
+    jQuery("#artistNameDisplay").css("left", "100%");
+    jQuery("#songTitleDisplay").css("left", "100%");
+    //check every 1 second or so
+    bootstrapProces = window.setInterval(function checkInitialLoad(){
+        if(isNewSongPlaying) {
+            window.clearInterval(bootstrapProces);
+            if(jQuery("body").hasClass("home")) {//remember add negation
+                responsiveSongInformationLoop();//start real animation loop
+            } else {
+                marqueeReplacementAnimationLoop()
+            }
+        }
+    }, 1000);  
+}
+function ensureFloatingButtonCompatability(){
+    jQuery("head").append('<style>a#floatingChatButton {margin-top: calc(8px + 8px + 1.4em + 1.4em + 16px);margin-top: -moz-calc(8px + 8px + 1.4em + 1.4em  + 16px);margin-top: -webkit-calc(8px + 8px + 1.4em + 1.4em  + 16px);margin-top: -o-calc(8px + 8px + 1.4em + 1.4em  + 16px);}</style>');
+}
+
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
 var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent, removeRegularMobileChat];
 var latestPlayer = [removeMobilePlayerPadding, removeAlternateSourcesMobile, recenterChatButton, moveClockIntoPlayer, 
     moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatButtonText, replaceIFrameMarquee, 
-    reinstateSongInformationUpdate];
-var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, animateSongInformationSimple];
+    reinstateSongInformationUpdate, ensureFloatingButtonCompatability];
+var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, addMobilePlayer, animateSongInformationComplex, removeSidebarForMobile];
 
 //
 // tasks: a list of functions to perform
@@ -365,8 +423,48 @@ function updateSongInformation(songInformation, styleVariables){
     return result;
 }
 
+// Simply adds a scroll function for managing the docking of the mobile player and managing chat button position.
+function addMobilePlayerScroll(){
+    jQuery(window).scroll(function(){
+        if(window.innerWidth < mobileFooterPlayerBreakpoint){
+            let playerHeight = jQuery('#mobilePlayer').outerHeight();
+            let position =  jQuery(window).scrollTop() + $(window).innerHeight();
+            let condition = jQuery('#footer-row').offset().top;
+            let difference = position - condition;
+            if(position > condition){
+                //jQuery("#mobilePlayer").css("bottom", (difference - 1) + "px");//maybe add one for line prevention?
+                //jQuery("#mobilePlayer").addClass("player-footer--docked");
+                //jQuery("#mobilePlayer").css("z-index", "-1");
+                jQuery("#jp_interface_1").css("bottom", (
+                    difference + (playerHeight/2 - 50)) + 
+                    "px");
+                let factor = (playerHeight + 16)/2 - 6;//notice, 12/2 = 6, has to do with custom as well.
+                if (difference < 91) { //ensure custom is possible.
+                    jQuery("#floatingChatButton").css("bottom", (
+                        factor * Math.cos(0.035 * difference) + factor + 12
+                    ) + "px");//pre calculated period variable, has to do with button size.
+                } else {
+                    jQuery("#floatingChatButton").css("bottom", "12px");//not sure
+                }
+            }
+            else{
+                //jQuery("#mobilePlayer").css("bottom", "0px")
+                //jQuery("#mobilePlayer").removeClass("player-footer--docked");
+                //jQuery("#mobilePlayer").css("z-index", "950");
+                jQuery("#jp_interface_1").css("bottom", "");
+                jQuery("#floatingChatButton").css("bottom", (playerHeight + 16) + "px"); 
+            }
+        }
+    });
+}
+
 var topTextPixelLength;
 var topScrollDuration;
+var artistTextPixelLength;
+var artistScrollDuration;
+var songTextPixelLength;
+var songScrollDuration;
+
 function marqueeReplacementAnimationLoop(){
     jQuery("#songDisplayTop").css("left", "100%");
     if(isNewSongPlaying) {
@@ -382,4 +480,56 @@ function marqueeReplacementAnimationLoop(){
         easing: 'linear', 
         complete: marqueeReplacementAnimationLoop
     });
+}
+function responsiveSongInformationLoop(){
+    const textProtusionLengthExtra = 3;
+    if(window.innerWidth < mobileFooterPlayerBreakpoint){
+        
+        if(isNewSongPlaying) {
+            jQuery("#artistNameDisplay").text(artist);
+            jQuery("#songTitleDisplay").text(song);
+            let length = jQuery("#artistNameDisplay").width();
+            length += textProtusionLengthExtra;
+            artistTextPixelLength = "-" + length + "px";
+            artistScrollDuration = ((jQuery("#artistNameContainer").innerWidth() + length) / 5 ) * 85;
+            length = jQuery("#songTitleDisplay").width();
+            length += textProtusionLengthExtra;
+            songTextPixelLength = "-" + length + "px";
+            songScrollDuration = ((jQuery("#songTitleContainer").innerWidth() + length) / 5 ) * 85;
+            isNewSongPlaying = false;
+        }
+        jQuery("#artistNameDisplay").animate({left: artistTextPixelLength
+        }, {
+            duration: artistScrollDuration, 
+            easing: 'linear',
+            complete: function() {
+                jQuery("#artistNameDisplay").css("left", "100%");
+            }
+        });
+        jQuery("#songTitleDisplay").animate({left: songTextPixelLength
+        }, {
+            duration: songScrollDuration, 
+            easing: 'linear',
+            complete: function() {
+                jQuery("#songTitleDisplay").css("left", "100%");
+            }
+        });
+        setTimeout(responsiveSongInformationLoop,
+            Math.max(artistScrollDuration, songScrollDuration) + 10);
+    } else {
+        jQuery("#songDisplayTop").css("left", "100%");
+        if(isNewSongPlaying) {
+            jQuery("#songDisplayTop").text(artist + " - " + song);
+            let length = jQuery("#songDisplayTop").width();
+            topTextPixelLength = "-" + jQuery("#songDisplayTop").width() + "px";
+            topScrollDuration = ((jQuery("#songContainerTop").innerWidth() + length) / 5 ) * 85;
+            isNewSongPlaying = false;
+        }
+        jQuery("#songDisplayTop").animate({left: topTextPixelLength
+        }, {
+            duration: topScrollDuration, 
+            easing: 'linear', 
+            complete: responsiveSongInformationLoop
+        });
+    }
 }

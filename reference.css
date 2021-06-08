@@ -359,10 +359,11 @@
 /* uuh  somehow layout that the bars are oriented full from right to left*/
 
 .player-footer {
-    position: fixed;
+    position: sticky;
     bottom: 0px;
+    /*position: fixed;
     left: 0px;
-    right: 0px;
+    right: 0px;*/
     z-index: 950;
     min-height: 75px;/*from play button*/
     padding-top: 8px;
