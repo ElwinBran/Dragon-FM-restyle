@@ -38,7 +38,7 @@ function removeMobileFooterRounding() {
     jQuery(".site-footer").addClass("small--no-rounding");
 }
 function fullSizeHeaderBanner(styleVariables) {
-    let backVar = "#ff6e00"; // Default
+    let backVar = "#57007F"; // Default
     if(!(styleVariables === undefined)) {
         if(styleVariables.size != 0) {
             let bannerBackgroundOverride = "";
