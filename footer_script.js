@@ -144,7 +144,7 @@ function restyleClockResponsive(styleVariables) {
         {"color": textColor, "font-size": textSize});
 }
 function changeChatButtonText(styleVariables) {
-    let newText = "Dragon FM Chat"; // Default
+    let newText = "Chat gezellig mee"; // Default
     if(!(styleVariables === undefined)) {
         if(styleVariables.size != 0) {
             let temp;
@@ -157,6 +157,21 @@ function changeChatButtonText(styleVariables) {
     let buttonContainer = jQuery(".widget_default_blok_2").find(".widget_button");
     buttonContainer.find("a").first().text(newText);
 }
+function changeChatLabelText(styleVariables) {
+    let newText = "Dragon FM Chat"; // Default
+    if(!(styleVariables === undefined)) {
+        if(styleVariables.size != 0) {
+            let temp;
+            temp = styleVariables.get("chat-label-text");
+            if(!(temp === undefined)) {
+                newText = temp;
+            }
+        }
+    }
+    jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").eq(1).text(newText);
+}
+
+
 function responsiveDesignMenuOverhaul() {
     jQuery(".navbar-header").remove();
     jQuery("#override-banner").ready(() => {
@@ -304,7 +319,7 @@ var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
 var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent, removeRegularMobileChat];
 var latestPlayer = [removeMobilePlayerPadding, removeAlternateSourcesMobile, recenterChatButton, moveClockIntoPlayer, 
-    moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatButtonText, replaceIFrameMarquee, 
+    moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatLabelText, changeChatButtonText, replaceIFrameMarquee, 
     reinstateSongInformationUpdate];
 var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, animateSongInformationSimple];
 
