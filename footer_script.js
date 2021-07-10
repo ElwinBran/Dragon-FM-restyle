@@ -315,13 +315,23 @@ function animateSongInformationSimple(styleVariables){
         }
     }, 1000);  
 }
+
+
+function ensureNewsArticleOverride() {
+    if (jQuery("body").hasClass("post-template-default"))
+    {
+        override(latestContent);
+    }
+}
+
 var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
 var latestHeader = [fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
-var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent, removeRegularMobileChat];
 var latestPlayer = [removeMobilePlayerPadding, removeAlternateSourcesMobile, recenterChatButton, moveClockIntoPlayer, 
     moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatLabelText, changeChatButtonText, replaceIFrameMarquee, 
     reinstateSongInformationUpdate];
-var latestFooter = [removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, animateSongInformationSimple];
+var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent, removeRegularMobileChat];
+var latestFooter = [ensureNewsArticleOverride, removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, 
+    animateSongInformationSimple];
 
 //
 // tasks: a list of functions to perform

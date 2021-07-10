@@ -408,3 +408,11 @@
         display: none;
     }
 }
+
+article.type-page {
+    border: none;
+}
+
+article.type-post {
+    border: none !important;
+}
