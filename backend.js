@@ -263,7 +263,7 @@ function syncSongInformation() {
 }
 // onCompletion: a function that executes on completion of the fetch and passes the result text into it
 function fetchSongInformation(onCompletion) {
-    fetch("https://dragonfm.nl/wp-content/themes/Radio2/IcecastHK-Curent-song.php").then(
+    fetch(overSettings.songInfoDownload).then(
         function(response) {
             response.text().then(
                 function(text) {
