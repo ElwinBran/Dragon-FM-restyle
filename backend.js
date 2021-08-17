@@ -1,14 +1,17 @@
-// Add styling hardcoded
-jQuery("head").append('<style type="text/css">.hamburger-toggler{position:fixed;top:calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-moz-calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-webkit-calc(((85vw * (264 / 1500)) - 36px)/ 2);top:-o-calc(((85vw * (264 / 1500)) - 36px)/ 2);right:calc((15vw - 36px)/ 2);right:-moz-calc((15vw - 36px)/ 2);right:-webkit-calc((15vw - 36px)/ 2);right:-o-calc((15vw - 36px)/ 2);color:#fff;z-index:999;height:36px;width:36px;outline:0;cursor:pointer;display:flex;align-items:center;appearance:none;border:none;background:0 0;padding:0;text-align:unset}@media(max-width:768px){.small--no-padding{padding:0}.small--no-rounding{border-radius:0}.small--no-bottom-margin{margin-bottom:0}.small--no-margin{margin:0}.small--display-block{display:block}.small--hidden{display:none}}@media(min-width:992px){.from-medium--default-rounding{border-radius:10px}}@media(max-width:991px){.medium--white-background{background-color:#fff}.medium--black-text{color:#000}}.remove-rounding{border-radius:0}.remove-padding{padding:0}.remove-margin{margin:0}.remove-vertical-padding{padding-top:0;padding-bottom:0}.rotate--half{transform:rotate(180deg)}.header-menu-fix{width:100%}@media(max-width:768px){.sticky-banner{position:fixed;box-shadow:rgba(0,0,0,.5) 0 3px 11px 0;z-index:1000}.header-menu-fix{width:85%}#content{margin-top:-moz-calc((85vw * (264 / 1500)) - 50px);margin-top:-webkit-calc((85vw * (264 / 1500)) - 50px);margin-top:-o-calc((85vw * (264 / 1500)) - 50px);margin-top:calc((85vw * (264 / 1500)) - 50px)}#menu-menu-1{margin:0 8px;font-size:1.4em}#menu-menu-1>li>a{font-weight:700}#navigationMenu{position:fixed;left:-100%;z-index:998;text-decoration:none;overflow:scroll;height:100%;color:#fff;background:#57007f;min-width:max(360px,80vw);min-height:calc(100vh - (85vw * (264 / 1500)));min-height:-moz-calc(100vh - (85vw * (264 / 1500)));min-height:-webkit-calc(100vh - (85vw * (264 / 1500)));min-height:-o-calc(100vh - (85vw * (264 / 1500)));top:calc(85vw * (264 / 1500));top:-moz-calc(85vw * (264 / 1500));top:-webkit-calc(85vw * (264 / 1500));top:-o-calc(85vw * (264 / 1500))}.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.open>a{background:#3188e7!important;-webkit-box-shadow:none!important;box-shadow:none!important}.navigation__menu{padding:24px 16px 8px 16px;display:flex;flex-direction:column;justify-content:center}}@media(min-width:769px){.margin-top-content-fix{margin-top:8px}.dropdown--responsive{min-width:160px;position:absolute;z-index:1000;font-weight:400;line-height:1.42857143;padding:0}li:hover>.dropdown--responsive{display:block}.dropdow__item--responsive{padding-right:5px;padding-left:5px;background-color:#57007f;border-bottom:1px solid #fff}.dropdow__item--responsive:first-child{border-radius:10px 10px 0 0}.dropdow__item--responsive:last-child{border-bottom:none;border-radius:0 0 10px 10px}}.hamburger-toggler span,.hamburger-toggler span::after,.hamburger-toggler span::before{position:absolute;content:"";width:36px;height:4.5px;background:#fafafa;border-radius:20px;transition:.5s cubic-bezier(.77,0,.175,1)}.hamburger-toggler span::before{top:-12px}.hamburger-toggler span::after{top:12px}.hamburger-toggler.active>span{background:0 0}.hamburger-toggler.active>span::after,.hamburger-toggler.active>span::before{background:#fff;top:0}.hamburger-toggler.active>span::before{transform:rotate(-225deg)}.hamburger-toggler.active>span::after{transform:rotate(225deg)}.lock-scroll{overflow:hidden}@keyframes navigationUnfoldShadowAnimation{0%{box-shadow:-25vw 0 300px 0 rgba(0,0,0,.5)}100%{box-shadow:60vw 0 20px 15px rgba(0,0,0,.5)}}@keyframes navigationFoldsShadowAnimation{0%{box-shadow:-25vw 0 300px 0 rgba(0,0,0,.5)}100%{box-shadow:30vw 0 20px 15px rgba(0,0,0,.5)}}.navigation-unfolds{animation-name:navigationUnfoldShadowAnimation;animation-duration:150ms;animation-iteration-count:1;animation-timing-function:linear;animation-fill-mode:forwards}.navigation-folds{animation-name:navigationFoldsShadowAnimation;animation-duration:.3s;animation-iteration-count:1;animation-direction:reverse;animation-timing-function:linear}.button--highlight{background-color:#57007f}#floatingChatButton{cursor:pointer;border-radius:50%;min-width:60px;min-height:60px;width:60px;z-index:997;position:fixed;bottom:24px;right:24px;-webkit-box-shadow:0 10px 25px -3px rgba(0,0,0,.75);-moz-box-shadow:0 10px 25px -3px rgba(0,0,0,.75);box-shadow:0 10px 25px -3px rgba(0,0,0,.75)}.center-contents{display:flex;align-items:center;justify-content:center}@media(max-width:768px){div#playbtn.jp-play.play-button--transparent{background:url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browsePlayBig.png) center center no-repeat}div#stopbtn.jp-pause.pause-button--transparent{background:url(https://dragonfm.nl/wp-content/themes/Radio2/player/skin/icon-browseStop.png) center center no-repeat}footer.footer-player-dock{margin-top:calc(8px + 8px + 1.4em + 1.4em);margin-top:-moz-calc(8px + 8px + 1.4em + 1.4em);margin-top:-webkit-calc(8px + 8px + 1.4em + 1.4em);margin-top:-o-calc(8px + 8px + 1.4em + 1.4em)}.widget_default_blok_1--hide-mobile{height:0;max-height:0;padding-bottom:0;margin-bottom:0;background:0 0!important}.player-widget__button{position:fixed;bottom:calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-moz-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-webkit-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);bottom:-o-calc(((8px + 8px + 1.8em + 1.8em)/ 2) - 50px);z-index:951;left:-15px}}.player-widget__display{white-space:nowrap;overflow:hidden;margin-left:auto;margin-right:auto;padding:4px;font-weight:400!important}.player-widget__display>*{display:inline-block;position:relative}.player-footer{position:fixed;bottom:0;left:0;right:0;z-index:950;min-height:75px;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:75px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#57007f;-webkit-box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0;-moz-box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0;box-shadow:rgb(0 0 0 / 50%) 0 -6px 11px 0}.player-footer--docked{-webkit-box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0;-moz-box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0;box-shadow:rgb(0 0 0 / 50%) 0 -10px 11px 0}.player-footer__display{overflow:hidden;white-space:nowrap;background:0 0;width:100%}.player-footer__display>*{display:inline-block;position:relative;font-size:1.4em;font-weight:400;font-family:verdana;font-style:italic;color:#fff}@media(min-width:769px){.from-medium--hidden{display:none}}</style>');
-
-function recenterChatButton(styleVariables) {
-    //here should be code to handle extra overrides. Mappings must be exported in the API.
+/*
+  Contains all code that processes the settings
+  and changes the website accordingly. 
+  Some features and structures are hardcoded here.
+*/
+/*==== feature functions ====*/
+function recenterChatButton() {
     let buttonContainer = jQuery(".widget_default_blok_2").find(".widget_button");
     buttonContainer.css("background-size", "cover");
     buttonContainer.find(".widget_button_tekst").css("width", "288px");
 }
-function addPlayerRounding(styleVariables) {
-    jQuery("#sidebar-left").children(".widget_default_blok_1").addClass("from-medium--default-rounding");
+function addPlayerRounding() {
+    jQuery("#sidebar-left").children(".widget_default_blok_1").
+        addClass("from-medium--default-rounding");
 }
 function removeMobileBodyPadding() {
     jQuery("body").addClass("small--no-bottom-margin");
@@ -31,66 +34,21 @@ function removeMobileFooterPadding() {
     });
     jQuery("#footer-row").ready(function() {
         jQuery("#footer-row").find("br").remove();
-        jQuery("#footer-row").find(".widget_header_met_opmaak_content_1").eq(1).addClass("remove-vertical-padding");
+        jQuery("#footer-row").find(".widget_header_met_opmaak_content_1").eq(1).
+            addClass("remove-vertical-padding");
     });
 }
 function removeMobileFooterRounding() {
     jQuery(".site-footer").addClass("small--no-rounding");
 }
-function fullSizeHeaderBanner(styleVariables) {
-    let backVar = "#57007F"; // Default
-    if(!(styleVariables === undefined)) {
-        if(styleVariables.size != 0) {
-            let bannerBackgroundOverride = "";
-            let temp;
-            let doUserOverride = false;
-            temp = styleVariables.get("banner-background-color");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-image");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-position");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-size");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-repeat");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-origin");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-clip");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            temp = styleVariables.get("banner-background-attachment");
-            if(!(temp === undefined)) {
-                bannerBackgroundOverride += temp;
-                doUserOverride = true;
-            }
-            if(doUserOverride) {
-                backVar = temp;
-            }
+function fullSizeHeaderBanner() {
+    let bannerColor = overSettings.mainColor;
+        if (overSettings.bannerBackgroundColor !== null 
+            && overSettings.bannerBackgroundColor !== ''){
+            bannerColor = overSettings.bannerBackgroundColor;
         }
-    }
     jQuery("header").ready(function(){
-        jQuery("body").prepend('<div id="override-banner" role="banner" style="background:' + backVar + ';"><div class="container"></div></div>');
+        jQuery("body").prepend('<div id="override-banner" role="banner" style="background:' + bannerColor + ';"><div class="container"></div></div>');
         jQuery(".navbar.navbar-default").find("img").appendTo("#override-banner > .container");
         jQuery("header").removeAttr("role");
         jQuery(".row.row-with-vspace.site-branding").remove();
@@ -116,62 +74,19 @@ function moveChatWidgetIntoPlayer() {
     chatBlock.children().appendTo("#sidebar-left > .widget_default_blok_1:eq(0)");
     chatBlock.remove();
 }
-function restyleClockResponsive(styleVariables) {
-    let restyleClasses = "medium--white-background medium--black-text"; // Default
-    let textColor = ""; // Default
-    let textSize = "2em"; // Default
-    if(!(styleVariables === undefined)) {
-        if(styleVariables.size != 0) {
-            let temp;
-            temp = styleVariables.get("desktop-clock-text-color");
-            if(!(temp === undefined)) {
-                textColor = temp;
-            }
-            temp = undefined;
-            temp = styleVariables.get("clock-font-size");
-            if(!(temp === undefined)) {
-                textSize = temp;
-            }
-            temp = undefined;
-            temp = styleVariables.get("clock-restyle-classes");
-            if(!(temp === undefined)) {
-                restyleClasses = temp;
-            }
-        }
-    }
-    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass(restyleClasses);
+function restyleClockResponsive() {
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass(overSettings.clockClasses);
     jQuery("#sidebar-left").find(".PMT_KLOK_widget").children().first().css(
-        {"color": textColor, "font-size": textSize});
+        {"color": overSettings.clockTextColor, "font-size": overSettings.clockFontSize});
 }
-function changeChatButtonText(styleVariables) {
-    let newText = "Chat gezellig mee"; // Default
-    if(!(styleVariables === undefined)) {
-        if(styleVariables.size != 0) {
-            let temp;
-            temp = styleVariables.get("chat-button-text");
-            if(!(temp === undefined)) {
-                newText = temp;
-            }
-        }
-    }
+function changeChatButtonText() {
     let buttonContainer = jQuery(".widget_default_blok_2").find(".widget_button");
-    buttonContainer.find("a").first().text(newText);
+    buttonContainer.find("a").first().text(overSettings.chatButtonText);
 }
-function changeChatLabelText(styleVariables) {
-    let newText = "Dragon FM Chat"; // Default
-    if(!(styleVariables === undefined)) {
-        if(styleVariables.size != 0) {
-            let temp;
-            temp = styleVariables.get("chat-label-text");
-            if(!(temp === undefined)) {
-                newText = temp;
-            }
-        }
-    }
-    jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").eq(1).text(newText);
+function changeChatLabelText() {
+    jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").eq(1).
+        text(overSettings.chatPromptLabelText);
 }
-
-
 function responsiveDesignMenuOverhaul() {
     jQuery(".navbar-header").remove();
     jQuery("#override-banner").ready(() => {
@@ -186,7 +101,18 @@ function responsiveDesignMenuOverhaul() {
         jQuery(".navbar-primary-collapse").addClass("small--display-block");//override collapse function
     });
     jQuery("#menu-menu-1").ready(() => {
-        jQuery("#menu-menu-1").wrap('<div id="navigationMenu"><section class="navigation__menu"></section></div>');
+        if (screen.width <= 768){
+            jQuery("#menu-menu-1").wrap(
+                `<div id="navigationMenu" style="background-color:${overSettings.mainColor};">
+                    <section class="navigation__menu"></section>
+                </div>`);
+        }
+        else {
+            jQuery("#menu-menu-1").wrap(
+                `<div id="navigationMenu">
+                    <section class="navigation__menu"></section>
+                </div>`);
+        }
     });
     var menuSelector = undefined;
     // automatic styling through sheet on #navigationmenu
@@ -205,7 +131,7 @@ function responsiveDesignMenuOverhaul() {
                 jQuery(element).removeAttr("data-dropdown");
                 jQuery(element).attr("data-toggle", "collapse");
                 jQuery(element).children("ul").addClass("collapse dropdown--responsive");
-                jQuery(element).find("li").addClass("dropdow__item--responsive");
+                jQuery(element).find("li").addClass("dropdown__item--responsive");
                 let displayText = jQuery(element).children("a").text();
                 let hyperlink = jQuery(element).children("a").attr("href");
                 jQuery(element).children("a").replaceWith('<a><div style="display: inline-block" onclick="location = \'' + hyperlink +'\'">' + displayText + '</div><span style="display: inline-block; margin-top: 8px; float: right; transition: transform .3s ease-out;" class="caret" onclick="jQuery(this).toggleClass(\'rotate--half\')"></span> </a>');
@@ -274,37 +200,25 @@ function removeAlternateSourcesMobile() {
 }
 
 // Required global variables to overwrite old player system.
-var artist;
-var song;
 var isNewSongPlaying = false;
 var mobileFooterPlayerBreakpoint = 769;//TODO
 
-function replaceIFrameMarquee(styleVariables) {
-    let songInformationFontFamily = "verdana, arial, Helvetica, sans-serif";
-    let songInformationFontSize = "1.4em";
-    let songInformationTextColor = "#ffffff";
-    let songInformationFontStyle = "italic";
+
+function replaceIFrameMarquee() {
     jQuery(".now_playing_scroler").replaceWith(
     `<div id="songContainerTop" class="now_playing_scroler player-widget__display">
     <span id="songDisplayTop" 
-    style="font-family:${songInformationFontFamily};
-    font-size:${songInformationFontSize};
-    color:${songInformationTextColor} !important;
-    font-style:${songInformationFontStyle};">Ophalen...</span></div>`);
+    style="font-family:${overSettings.songInfoFontFamily};
+    font-size:${overSettings.songInfoFontSize};
+    color:${overSettings.songInfoTextColor} !important;
+    font-style:${overSettings.songInfoFontStyle};">Ophalen...</span></div>`);
 }
-function reinstateSongInformationUpdate(styleVariables){
-    syncSongInformation(styleVariables);
-    let loopTime = 10000;
-    if (!(styleVariables === undefined)){
-        let temp = undefined;
-        temp = styleVariables.get("songInformationUpdateInterval");
-        if(!(temp === undefined)){
-            loopTime = temp;
-        }
-    }
-    window.setInterval(syncSongInformation, loopTime, styleVariables);
+function reinstateSongInformationUpdate(){
+    syncSongInformation();
+    let loopTime = Number(overSettings.songInfoRefresh) * 1000;
+    window.setInterval(syncSongInformation, loopTime);
 }
-function animateSongInformationSimple(styleVariables){
+function animateSongInformationSimple(){
     let bootstrapProces;
     jQuery("#songDisplayTop").css("left", "100%");
     //check every 1 second or so
@@ -320,33 +234,25 @@ function animateSongInformationSimple(styleVariables){
 function ensureNewsArticleOverride() {
     if (jQuery("body").hasClass("post-template-default"))
     {
-        override(latestContent);
+        override(contentFeatures); //variable declared later in features.js (?)
     }
 }
 
-var latestBody = [removeMobileBodyPadding, removeBodyOnlyMargin];
-var latestHeader = [fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
-var latestPlayer = [removeMobilePlayerPadding, removeAlternateSourcesMobile, recenterChatButton, moveClockIntoPlayer, 
-    moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatLabelText, changeChatButtonText, replaceIFrameMarquee, 
-    reinstateSongInformationUpdate];
-var latestContent = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent, removeRegularMobileChat];
-var latestFooter = [ensureNewsArticleOverride, removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, 
-    animateSongInformationSimple];
-
-//
+/*==== helper functions ====*/
 // tasks: a list of functions to perform
-// OPTIONAL | styleVariables: a map {string, string} of a propery to be overridden 
-function override(tasks, styleVariables) {
+function override(tasks) {
     jQuery(tasks).each(function(key, val){
-        val(styleVariables);
+        val();
     });
 }
-
-/*==== helper functions ====*/
-function syncSongInformation(styleVariables) {
+// Required global variables for the new player display.
+var artist;
+var song;
+var seperatorLength = overSettings.songArtistSeparation.length;
+function syncSongInformation() {
     fetchSongInformation(function(text) {
         //executed on another time.
-        updateSongInformation(extractSongDetailInformation(text), styleVariables);
+        updateSongInformation(extractSongDetailInformation(text));
         isNewSongPlaying = true;
     });
 }
@@ -362,21 +268,22 @@ function fetchSongInformation(onCompletion) {
 }
 function extractSongDetailInformation(html){
     let songDisplayStartIndex = html.lastIndexOf('">') + 2;
-    let alternateIndex = html.indexOf("'>") + 2; //TODO
+    let alternateIndex = html.indexOf("'>") + 2;
     let songDisplayEndIndex = html.indexOf("</marq");
     let information = html.substring(alternateIndex, songDisplayEndIndex + 1);
     return information;
 }
 // Sets song information global variables based on song input
 // songInformation: a string containing both artist and song name seperated with a special string
-// styleVariables: the key 'songSeparator' is used to split the songInformation
 // returns: boolean whether the song has changed (true for change, false otherwise)
-function updateSongInformation(songInformation, styleVariables){
+function updateSongInformation(songInformation){
     let result = false;
-    let middle = songInformation.indexOf(" - ");// custom
+    let middle = songInformation.indexOf(overSettings.songArtistSeparation);
+    let songIndex = middle + seperatorLength;
     let tempString = songInformation.substring(0, middle);
     if(tempString === artist){
-        let tempString2 = songInformation.substring(middle + 3, songInformation.length - 1);//take custom into account
+        let tempString2 = 
+          songInformation.substring(songIndex, songInformation.length - 1);
         if(tempString !== song){
             song = tempString2;
         }
@@ -384,7 +291,8 @@ function updateSongInformation(songInformation, styleVariables){
     }
     else{
         artist = tempString;
-        tempString = songInformation.substring(middle + 3, songInformation.length - 1);//take custom into account
+        tempString = 
+          songInformation.substring(songIndex, songInformation.length - 1);
         song = tempString;
     }
     return result;
@@ -395,7 +303,7 @@ var topScrollDuration;
 function marqueeReplacementAnimationLoop(){
     jQuery("#songDisplayTop").css("left", "100%");
     if(isNewSongPlaying) {
-        jQuery("#songDisplayTop").text(artist + " - " + song);
+        jQuery("#songDisplayTop").text(artist + overSettings.songArtistSeparation + song);
         let length = jQuery("#songDisplayTop").width();
         topTextPixelLength = "-" + length + "px";
         topScrollDuration = ((jQuery("#songContainerTop").innerWidth() + length) / 5 ) * 85;

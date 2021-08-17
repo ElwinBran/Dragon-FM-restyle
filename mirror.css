@@ -69,15 +69,15 @@
 }
 
 .remove-rounding {
-    border-radius: 0px;
+    border-radius: 0px !important; /* a workaround for css precedence*/
 }
 
 .remove-padding {
-    padding: 0px;
+    padding: 0px !important; /* a workaround for css precedence*/
 }
 
 .remove-margin {
-    margin: 0px
+    margin: 0px !important; /* a workaround for css precedence*/
 }
 
 .remove-vertical-padding {
@@ -187,7 +187,7 @@
         display: block;
     }
 
-    .dropdow__item--responsive {
+    .dropdown__item--responsive {
         padding-right: 5px;
         padding-left: 5px;
         background-color: #57007F;
@@ -195,16 +195,16 @@
     }
 
     /* 10px as per original intention */
-    .dropdow__item--responsive:first-child {
+    .dropdown__item--responsive:first-child {
         border-radius: 10px 10px 0 0;
     }
 
-    .dropdow__item--responsive:last-child {
+    .dropdown__item--responsive:last-child {
         border-bottom: none;
         border-radius: 0 0 10px 10px;
     }
-    
-    
+
+
 }
 
 .hamburger-toggler span,
@@ -280,7 +280,7 @@
 }
 
 .button--highlight {
-    background-color: #57007F;
+    background-color: #57007F; 
 }
 
 #floatingChatButton {
