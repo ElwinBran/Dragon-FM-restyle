@@ -230,11 +230,16 @@ function animateSongInformationSimple(){
     }, 1000);  
 }
 
+function removeFormMargin() {
+    jQuery(".form-group").addClass("input-container clearfix")
+                         .removeClass("form-group");
+}
 
 function ensureNewsArticleOverride() {
     if (jQuery("body").hasClass("post-template-default"))
     {
-        override(contentFeatures); //variable declared later in features.js (?)
+        override(contentFeatures); //variable declared later in features.js
+        override(articleFeatures); //idem, these are specific to articles
     }
 }
 

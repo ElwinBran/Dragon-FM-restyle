@@ -8,3 +8,4 @@ var playerFeatures = [removeMobilePlayerPadding, removeAlternateSourcesMobile, r
 var contentFeatures = [removeResponsiveMenuSelect, fixTopMargin, removeMobileContentPadding, removeResponsiveSelectClass, fixExternalContent, removeRegularMobileChat];
 var footerFeatures = [ensureNewsArticleOverride, removeMobileFooterPadding, removeFooterRounding, moveFooterFullyDown, addFloatingChatButton, 
     animateSongInformationSimple];
+var articleFeatures = [removeFormMargin];

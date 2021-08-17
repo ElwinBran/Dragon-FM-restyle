@@ -416,3 +416,7 @@ article.type-page {
 article.type-post {
     border: none !important;
 }
+
+.input-container {
+    margin-bottom: 15px;
+}
