@@ -304,6 +304,13 @@
     justify-content: center;
 }
 
+.center-overflow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 /* New sticky footer features*/
 @media(max-width:768px){
     div#playbtn.jp-play.play-button--transparent {
@@ -419,4 +426,19 @@ article.type-post {
 
 .input-container {
     margin-bottom: 15px;
+}
+
+.social-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 10px;
+}
+
+.social-bar__symbol {
+    display: block;
+    fill: currentColor;
+    width: inherit;
+    height: inherit;
 }
