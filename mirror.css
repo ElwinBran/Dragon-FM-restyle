@@ -133,7 +133,6 @@
         overflow: scroll;
         height: 100%;
         color:  white;/*#005c9c;*/
-        background: #57007F;
         min-width: max(360px, 80vw);
         min-height: calc(100vh - (85vw * (264 / 1500)));
         /* Firefox */
@@ -190,7 +189,6 @@
     .dropdown__item--responsive {
         padding-right: 5px;
         padding-left: 5px;
-        background-color: #57007F;
         border-bottom: 1px solid white;
     }
 

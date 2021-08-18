@@ -42,14 +42,18 @@ function removeMobileFooterRounding() {
     jQuery(".site-footer").addClass("small--no-rounding");
 }
 function fullSizeHeaderBanner() {
-    let bannerColor = overSettings.mainColor;
+    jQuery("header").ready(function(){
+        let bannerColor = overSettings.mainColor;
         if (overSettings.bannerBackgroundColor !== null 
             && overSettings.bannerBackgroundColor !== ''){
             bannerColor = overSettings.bannerBackgroundColor;
         }
-    jQuery("header").ready(function(){
-        jQuery("body").prepend('<div id="override-banner" role="banner" style="background:' + bannerColor + ';"><div class="container"></div></div>');
-        jQuery(".navbar.navbar-default").find("img").appendTo("#override-banner > .container");
+        jQuery("body").prepend(`<div id="override-banner" role="banner" style="background: 
+        ${bannerColor}${overSettings.bannerBackgroundImage}
+        ${overSettings.bannerBackgroundPosition}${overSettings.bannerBackgroundSize}
+        ${overSettings.bannerBackgroundRepeat}${overSettings.bannerBackgroundOrigin}
+        ${overSettings.bannerBackgroundClip}${overSettings.bannerBackgroundAttachment}
+        ;"><div class="container"></div></div>`);
         jQuery("header").removeAttr("role");
         jQuery(".row.row-with-vspace.site-branding").remove();
         jQuery("header").find(".textwidget.custom-html-widget").addClass("remove-padding remove-margin");
@@ -102,8 +106,12 @@ function responsiveDesignMenuOverhaul() {
     });
     jQuery("#menu-menu-1").ready(() => {
         if (screen.width <= 768){
+            let menuColor = overSettings.mainColor;
+            if(overSettings.mobileMenuColor !== null && overSettings.mobileMenuColor !== '') {
+                menuColor = overSettings.mobileMenuColor;
+            }
             jQuery("#menu-menu-1").wrap(
-                `<div id="navigationMenu" style="background-color:${overSettings.mainColor};">
+                `<div id="navigationMenu" style="background-color:${menuColor};">
                     <section class="navigation__menu"></section>
                 </div>`);
         }
@@ -131,10 +139,17 @@ function responsiveDesignMenuOverhaul() {
                 jQuery(element).removeAttr("data-dropdown");
                 jQuery(element).attr("data-toggle", "collapse");
                 jQuery(element).children("ul").addClass("collapse dropdown--responsive");
-                jQuery(element).find("li").addClass("dropdown__item--responsive");
+                let dropColor = overSettings.mainColor;
+                if(overSettings.dropdownColor !== null && overSettings.dropdownColor !== '') {
+                    dropColor = overSettings.dropdownColor;
+                }
+                jQuery(element).find("li").addClass("dropdown__item--responsive")
+                .css("background-color", dropColor);
                 let displayText = jQuery(element).children("a").text();
                 let hyperlink = jQuery(element).children("a").attr("href");
-                jQuery(element).children("a").replaceWith('<a><div style="display: inline-block" onclick="location = \'' + hyperlink +'\'">' + displayText + '</div><span style="display: inline-block; margin-top: 8px; float: right; transition: transform .3s ease-out;" class="caret" onclick="jQuery(this).toggleClass(\'rotate--half\')"></span> </a>');
+                jQuery(element).children("a").replaceWith(`<a><div style="display:inline-block" 
+                onclick="location = '${hyperlink}'"> ${displayText}</div>
+                    <span style="display: inline-block; margin-top: ${overSettings.mmFoldMarTop}; float: right; transition: ${overSettings.mmFoldTrans};" class="caret" onclick="jQuery(this).toggleClass('rotate--half')"></span> </a>`);
                 jQuery(element).children("ul").removeClass("dropdown-menu");
                 jQuery(element).find("li").css("display", "block");
             }
@@ -218,7 +233,26 @@ function removeRegularMobileChat() {
     jQuery("#sidebar-left > .widget_default_blok_1 > .widget_default_blok_2").addClass("small--hidden");
 }
 function addFloatingChatButton() {
-    jQuery("footer.site-footer").before('<a id="floatingChatButton" class="button--highlight center-contents from-medium--hidden" href="/chatroom" onclick="window.open(this.href, this.target, \'toolbar=0,location=0,menubar=0,scrollbars=0,resizable=0\'); return false;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="20px" y="25%" width="35px" height="40px" style="fill: white;/* background-color: white; */" viewBox="0 0 554.962 554.962" xml:space="preserve"><g><g><path d="M530.5,148.633H404.826v162.155c0,23.611-19.211,42.822-42.822,42.822H168.49v54.297    c0,13.506,10.949,24.461,24.461,24.461h190.118l79.443,66.354c10.367,8.66,15.942,5.098,12.454-7.949l-15.521-58.012    c-0.036-0.135-0.109-0.258-0.146-0.393h71.2c13.507,0,24.462-10.949,24.462-24.461V173.088    C554.955,159.582,544.007,148.633,530.5,148.633z"/><path d="M24.461,335.243h37.394c-0.037,0.135-0.11,0.258-0.147,0.393l-15.521,58.012c-2.203,8.225-0.795,12.68,3.134,12.68    c2.307,0,5.483-1.529,9.314-4.73l79.444-66.354h30.417h193.515c13.507,0,24.461-10.947,24.461-24.461V148.633V75.97    c0-13.507-10.948-24.461-24.461-24.461H24.461C10.955,51.509,0,62.458,0,75.97v234.812C0,324.296,10.949,335.243,24.461,335.243z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a>');
+    let fabCustom = "";
+    if (overSettings.fabBackground.length > 0)
+    {
+        fabCustom = 'style="color:' + overSettings.fabBackground + ';" ';
+    }
+    let symbolColor = "currentColor";
+    if (overSettings.fabChatSymbolColor.length > 0)
+    {
+        symbolColor = overSettings.fabChatSymbolColor;
+    }
+    else
+    {
+        symbolColor = overSettings.socialSymbolsColor;
+    }
+    jQuery("footer.site-footer").before(`<a id="floatingChatButton" ${fabCustom}
+                class="${overSettings.fabClasses}" 
+                href="/chatroom" onclick="window.open(this.href, this.target,
+                     \'toolbar=0,location=0,menubar=0,scrollbars=0,resizable=0\'); return false;">
+                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="20px" y="25%" width="35px" height="40px" 
+    style="fill: ${symbolColor};" viewBox="0 0 554.962 554.962" xml:space="preserve"><g><g><path d="M530.5,148.633H404.826v162.155c0,23.611-19.211,42.822-42.822,42.822H168.49v54.297    c0,13.506,10.949,24.461,24.461,24.461h190.118l79.443,66.354c10.367,8.66,15.942,5.098,12.454-7.949l-15.521-58.012    c-0.036-0.135-0.109-0.258-0.146-0.393h71.2c13.507,0,24.462-10.949,24.462-24.461V173.088    C554.955,159.582,544.007,148.633,530.5,148.633z"/><path d="M24.461,335.243h37.394c-0.037,0.135-0.11,0.258-0.147,0.393l-15.521,58.012c-2.203,8.225-0.795,12.68,3.134,12.68    c2.307,0,5.483-1.529,9.314-4.73l79.444-66.354h30.417h193.515c13.507,0,24.461-10.947,24.461-24.461V148.633V75.97    c0-13.507-10.948-24.461-24.461-24.461H24.461C10.955,51.509,0,62.458,0,75.97v234.812C0,324.296,10.949,335.243,24.461,335.243z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a>`);
 }
 function removeAlternateSourcesMobile() {
     jQuery(".player_links").addClass("small--hidden");
@@ -266,6 +300,33 @@ function ensureNewsArticleOverride() {
         override(contentFeatures); //variable declared later in features.js
         override(articleFeatures); //idem, these are specific to articles
     }
+}
+
+/*==== generic setting features ====*/
+//NOTE: these can later be used as 'bootstrappers' to reduce overhead and merge functions
+function bodySetup(){
+    jQuery("body").css("color", overSettings.textColor);
+}
+
+function contentSetup(){
+    //when content (article content) ready:
+    if (overSettings.kcTextColor =! "black"){
+        jQuery("#main").ready(function(){
+            jQuery("#main").find(".kc_text_block > p").css("color", overSettings.kcTextColor);
+        });
+    }
+}
+
+function footerSetup(){
+    jQuery("#footer-row").ready(function() {
+        let footerCol = overSettings.mainColor;
+        if (overSettings.footerColor !== null && overSettings.footerColor !== ''){
+            footerCol = overSettings.footerColor;
+        }
+        jQuery("#footer-row").attr('style', 'background-color:' + footerCol +
+             '!important');
+        //jQuery("#footer-row").css("background-color", )
+    });
 }
 
 /*==== helper functions ====*/
