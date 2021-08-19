@@ -54,6 +54,10 @@ function fullSizeHeaderBanner() {
         ${overSettings.bannerBackgroundRepeat}${overSettings.bannerBackgroundOrigin}
         ${overSettings.bannerBackgroundClip}${overSettings.bannerBackgroundAttachment}
         ;"><div class="container"></div></div>`);
+        //shoehorned hook for dynamic banner
+        let imgElement = jQuery(".navbar.navbar-default").find("img");
+        defaultBanner = imgElement.attr("src");
+        imgElement.appendTo("#override-banner > .container");
         jQuery("header").removeAttr("role");
         jQuery(".row.row-with-vspace.site-branding").remove();
         jQuery("header").find(".textwidget.custom-html-widget").addClass("remove-padding remove-margin");
@@ -302,6 +306,17 @@ function ensureNewsArticleOverride() {
     }
 }
 
+function setUpDynamicBanner() {
+    if (overSettings.bannerSwitching) {
+        fillBannerLookup();
+        jQuery("#sidebar-left").ready(function(){
+            let time  = timeUntilNextShow();
+            //-1  will trigger instantly.
+            setTimeout(updateBanner, time);
+        });
+    }
+}
+
 /*==== generic setting features ====*/
 //NOTE: these can later be used as 'bootstrappers' to reduce overhead and merge functions
 function bodySetup(){
@@ -407,3 +422,88 @@ function marqueeReplacementAnimationLoop(){
         complete: marqueeReplacementAnimationLoop
     });
 }
+
+var defaultBanner; //load from start html, set in banner override
+var bannerLookup;
+//showtime-now-playing .children()[0]. text();
+//get text, remove until second colon + 1 (space) 
+//var position = data.indexOf(":", data.indexOf(":") + 1) + 2;
+//if there is no colon at all, simply skip
+//substring(position, length)
+
+function fillBannerLookup(){
+    bannerLookup = new Array(overSettings.bannerLinks.length);
+    jQuery(overSettings.bannerLinks).each(function(index, showEntry){
+        let showName = showEntry[0];
+        bannerLookup[index] = showName; //.toUpperCase(); internal has no upper?
+    });
+}
+
+//let index = bannerLookup.indexOf(currentShow);
+//test undefined
+var currentBannerIndex;
+
+function timeUntilNextShow(){
+    let currentTime = new Date();
+    let time = currentTime.getMinutes();
+    //check current time until the next 'xx:59' unless
+    let result;
+    if (time >= 59 || time < 5){
+        result = -1;
+    } else {
+        currentTime.setMinutes(59);
+        result = currentTime - new Date();
+    }
+    //current time is between 'xx:59 and [xx+1]:05' -> then immediately enter sync loop
+    //with the first case, set a timeout with the more or less exact milliseconds until then.
+
+    //15 seconds interval for sync loop, use window.interval and stuff
+    //so when the loop detects a show change or ':05' has passed, 
+    // remove interval and set timeout until next ':59'
+    return result;
+}
+
+var bannerLoopId = null;
+
+function updateBanner(){
+    let bannerChanged = false;
+    let showIndex = getShowIndex(getShowText());
+    if(showIndex != -1 && showIndex != currentBannerIndex){
+        let newBannerUrl = "https://dragonfm.nl/pic/uploads/" + 
+            overSettings.bannerLinks[showIndex][1];
+        replaceBanner(newBannerUrl);
+        bannerChanged = true;
+    }
+    if (new Date().getMinutes() > 5 || bannerChanged) {
+        window.clearInterval(bannerLoopId);
+        bannerLoopId = null;
+        setTimeout(updateBanner, timeUntilNextShow());
+    } else if (bannerLoopId == null){
+        bannerLoopId = window.setInterval(updateBanner, 15000); //15 second refresh time
+    }
+}
+
+function getShowText(){
+    let djPlannerText = jQuery(".showtime-now-playing").children().first().text();
+    let colonIndex = djPlannerText.lastIndexOf(':');
+    if (colonIndex > 0){
+        return djPlannerText.substring
+        (colonIndex + 2, djPlannerText.length);
+    }
+    else{
+        return "";
+    }
+}
+
+function getShowIndex(showDisplayText){
+    return bannerLookup.indexOf(showDisplayText);
+}
+
+function replaceBanner(url){
+    let bannerImage = jQuery("#override-banner").find("img");
+    if(bannerImage.attr("src") != url){
+        jQuery("#override-banner").find("img").attr(
+            {src: url, "data-src": url});
+    }
+}
+
