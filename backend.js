@@ -310,9 +310,7 @@ function setUpDynamicBanner() {
     if (overSettings.bannerSwitching) {
         fillBannerLookup();
         jQuery("#sidebar-left").ready(function(){
-            let time  = timeUntilNextShow();
-            //-1  will trigger instantly.
-            setTimeout(updateBanner, time);
+            setTimeout(updateBanner, 1500);
         });
     }
 }
