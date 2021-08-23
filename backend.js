@@ -158,31 +158,7 @@ function responsiveDesignMenuOverhaul() {
                 jQuery(element).find("li").css("display", "block");
             }
         });
-        let socialBlob = [
-            {link: "https://open.spotify.com/user/hpx3z64qv46xf6lc3be3biihq?si=f5654f24f7a44d4c",
-        name: "Spotify"},
-        {link: "https://www.facebook.com/RadioDragonFM",
-            name: "Facebook"},
-            {link: "https://www.instagram.com/RadioDragonFM",
-            name: "Instagram"},
-            {link: "mailto:radio@dragonfm.nl",
-            name: "Email"},
-            {link: "https://www.youtube.com/channel/UCfVi5JAqbYZd2DzhCr5hHyw",
-            name: "YouTube"}];
-        let menuFooterHtml = '<section class="from-medium--hidden"><div style="padding-top:10px" class="center-overflow"><b>Volg ons</b></div>';
-        jQuery(socialBlob).each(function(index, social){
-            menuFooterHtml += `<a href="${social.link}" target="_blank" 
-            rel="noopener noreferrer" 
-            style="text-decoration:none;border:0;
-             width:53px; height:53px;margin:5px;
-             color:white!important;">
-            <svg style="fill:currentColor;width:inherit;height:inherit;"
-             preserveAspectRatio="xMidYMid meet" version="2.0">
-             <use href="#${social.name.toLowerCase()}-symbol" />
-         </svg></a>`;
-         //last template trick there uses the svg symbols already defined in the HTML that conform to that naming scheme
-        });
-        menuFooterHtml += '</div></section>';
+        let menuFooterHtml = '<section class="from-medium--hidden"><div style="padding-top:10px" class="center-overflow"><b>Volg ons</b></div><div id="mobileMenuSocialIconHolder"class="center-overflow"></div></section>';
         jQuery("#navigationMenu").append(menuFooterHtml);
     });
     var isMenuOpen = false;
@@ -315,6 +291,13 @@ function setUpDynamicBanner() {
             setTimeout(updateBanner, 1500);
         });
     }
+}
+
+function mirrorSocialMediaLinksToMobile() {
+    jQuery("footer").ready(function(){
+        jQuery("#mobileMenuSocialIconHolder").append(jQuery(".social-bar").children().clone());
+        jQuery("#mobileMenuSocialIconHolder").children().css("background-color", "transparent");
+    });
 }
 
 /*==== generic setting features ====*/
