@@ -419,6 +419,10 @@
     }
 }
 
+#main > article {
+    border: none !important;    
+}
+
 article.type-page {
     border: none;
 }
