@@ -57,7 +57,6 @@ bannerLinks: [
 "KnapFout.png"],
 ["Jacobs in de Ochtend","Jacobs-in-de-Ochtend.png"],
 ["Huis, Tuin en Keukenshow","Huis-Tuin-en-Keukenshow-1.png"],
-//no comma?
 ["Hits van Nu",
 "Hits-van-Nu-1.png"],
 ["Hitkampioen",

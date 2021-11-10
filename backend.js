@@ -53,9 +53,10 @@ function fullSizeHeaderBanner() {
         ${overSettings.bannerBackgroundPosition}${overSettings.bannerBackgroundSize}
         ${overSettings.bannerBackgroundRepeat}${overSettings.bannerBackgroundOrigin}
         ${overSettings.bannerBackgroundClip}${overSettings.bannerBackgroundAttachment}
-        ;"><div class="container"></div></div>`);
+        ;"><div class="container" style="position:relative"></div></div>`); //extra code for animation
         //shoehorned hook for dynamic banner
         let imgElement = jQuery(".navbar.navbar-default").find("img");
+        imgElement.css({visibility: "hidden", opacity: 0});
         defaultBanner = imgElement.attr("src");
         imgElement.appendTo("#override-banner > .container");
         jQuery("header").removeAttr("role");
@@ -158,6 +159,11 @@ function responsiveDesignMenuOverhaul() {
                 jQuery(element).find("li").css("display", "block");
             }
         });
+        if (screen.width <= 768){
+            //ensure active highlight
+            jQuery("#menu-menu-1").find(".active > a").addClass("pop");
+            jQuery("#menu-menu-1").find(".open>a").addClass("pop");
+        }
         let menuFooterHtml = '<section class="from-medium--hidden"><div style="padding-top:10px" class="center-overflow"><b>Volg ons</b></div><div id="mobileMenuSocialIconHolder"class="center-overflow"></div></section>';
         jQuery("#navigationMenu").append(menuFooterHtml);
     });
@@ -446,6 +452,7 @@ function timeUntilNextShow(){
     return result;
 }
 
+var isInitial = true;
 var bannerLoopId = null;
 
 function updateBanner(){
@@ -484,9 +491,39 @@ function getShowIndex(showDisplayText){
 
 function replaceBanner(url){
     let bannerImage = jQuery("#override-banner").find("img");
-    if(bannerImage.attr("src") != url){
-        jQuery("#override-banner").find("img").attr(
+    if (isInitial)
+    {
+        bannerImage.attr(
             {src: url, "data-src": url});
+        bannerImage.removeAttr("style");
+        bannerImage.css({"opacity": 0,
+            height: "100%", transition: "opacity 800ms"});
+        //remove visibility
+        //set opacity 1.0
+        //clone
+        jQuery("#override-banner > .container").append(bannerImage.clone())
+        bannerImage.first().css("position", "absolute").css("opacity", 1);
+        isInitial = false;
+        setTimeout(function(){
+            jQuery("#override-banner").find("img").eq(1).css("opacity", 1);
+        }, 15000);
     }
+    else 
+    {
+        let bottomImage = bannerImage.eq(1)
+        if(bottomImage.attr("src") == url){
+            return;
+        }
+        bottomImage.attr({src: url, "data-src": url});
+        let topImage = bannerImage.first();
+        topImage.css("opacity", 0);
+        setTimeout(function(){
+            topImage.attr({src: url, "data-src": url});
+            topImage.css("opacity", 1);
+        }, 15000);
+        //set timeout
+    }
+    jQuery("#override-banner").find("img").attr(
+            {src: url, "data-src": url});
 }
 

@@ -150,10 +150,11 @@
         top: -o-calc(85vw * (264 / 1500));
     }
     
-    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a {
+    .navbar-default .navbar-nav>.active>a.pop, .navbar-default .navbar-nav>.open>a.pop {
         background: #3188E7 !important;
         -webkit-box-shadow: none !important;
         box-shadow: none !important;
+        border-radius: 10px;
     }
 
 
