@@ -306,6 +306,16 @@ function mirrorSocialMediaLinksToMobile() {
     });
 }
 
+function changePlayerPopup(){
+    let extPlayer = jQuery(".player_links").children().last();
+    extPlayer.attr("href", "http://mytuner-radio.com/embed/dragon-fm-477414");
+    extPlayer.children("img").attr("title", "Open speler in nieuw tabblad");
+}
+
+function removeITunes(){
+    jQuery(".player_links").children().eq(2).remove();
+}
+
 /*==== generic setting features ====*/
 //NOTE: these can later be used as 'bootstrappers' to reduce overhead and merge functions
 function bodySetup(){
@@ -503,6 +513,7 @@ function replaceBanner(url){
         //clone
         jQuery("#override-banner > .container").append(bannerImage.clone())
         bannerImage.first().css("position", "absolute").css("opacity", 1);
+        bannerImage.addClass("banner");
         isInitial = false;
         setTimeout(function(){
             jQuery("#override-banner").find("img").eq(1).css("opacity", 1);
