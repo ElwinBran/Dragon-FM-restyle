@@ -451,10 +451,20 @@ article.type-post {
     height: inherit;
 }
 
-@media (min-width: 1200px)
+@media (min-width: 768px)
 {
     .banner{
-        width: 1140px;
+        width: 720px;
+    }
+    .banner-half{
+        height: calc((264px * (720 / 1500)) / 2); /* 264px and 1500 are input image sizes */
+        height: -moz-calc((264px * (720 / 1500)) / 2); 
+        height: -webkit-calc((264px * (720 / 1500)) / 2); 
+        height: -o-calc((264px * (720 / 1500)) / 2); 
+        top: calc((264px * (720 / 1500)) / 2); 
+        top: -moz-calc((264px * (720 / 1500)) / 2); 
+        top: -webkit-calc((264px * (720 / 1500)) / 2); 
+        top: -o-calc((264px * (720 / 1500)) / 2); 
     }
 }
 
@@ -463,11 +473,31 @@ article.type-post {
     .banner{
         width: 940px;
     }
+    .banner-half{
+        height: calc((264px * (940 / 1500)) / 2); /* 264px and 1500 are input image sizes */
+        height: -moz-calc((264px * (940 / 1500)) / 2); 
+        height: -webkit-calc((264px * (940 / 1500)) / 2); 
+        height: -o-calc((264px * (940 / 1500)) / 2); 
+        top: calc((264px * (940 / 1500)) / 2); 
+        top: -moz-calc((264px * (940 / 1500)) / 2); 
+        top: -webkit-calc((264px * (940 / 1500)) / 2); 
+        top: -o-calc((264px * (940 / 1500)) / 2); 
+    }
 }
 
-@media (min-width: 768px)
+@media (min-width: 1200px)
 {
     .banner{
-        width: 720px;
+        width: 1140px;
+    }
+    .banner-half{
+        height: calc((264px * (1140 / 1500)) / 2); /* 264px and 1500 are input image sizes */
+        height: -moz-calc((264px * (1140 / 1500)) / 2); 
+        height: -webkit-calc((264px * (1140 / 1500)) / 2); 
+        height: -o-calc((264px * (1140 / 1500)) / 2); 
+        top: calc((264px * (1140 / 1500)) / 2); 
+        top: -moz-calc((264px * (1140 / 1500)) / 2); 
+        top: -webkit-calc((264px * (1140 / 1500)) / 2); 
+        top: -o-calc((264px * (1140 / 1500)) / 2); 
     }
 }

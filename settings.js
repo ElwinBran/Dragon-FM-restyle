@@ -142,6 +142,8 @@ clockClasses:
 // - Top bars
 bannerBackgroundColor:
 "", //@mainColor
+bannerSecondHalf:
+"", 
 bannerBackgroundImage:
 "", //url
 bannerBackgroundPosition:

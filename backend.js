@@ -48,12 +48,18 @@ function fullSizeHeaderBanner() {
             && overSettings.bannerBackgroundColor !== ''){
             bannerColor = overSettings.bannerBackgroundColor;
         }
-        jQuery("body").prepend(`<div id="override-banner" role="banner" style="background: 
-        ${bannerColor}${overSettings.bannerBackgroundImage}
-        ${overSettings.bannerBackgroundPosition}${overSettings.bannerBackgroundSize}
-        ${overSettings.bannerBackgroundRepeat}${overSettings.bannerBackgroundOrigin}
-        ${overSettings.bannerBackgroundClip}${overSettings.bannerBackgroundAttachment}
-        ;"><div class="container" style="position:relative"></div></div>`); //extra code for animation
+        let bannerHtml;
+        if (screen.width > 768 
+            && overSettings.bannerSecondHalf !== null
+            && overSettings.bannerSecondHalf !== '' )
+        {
+            bannerHtml = dualColourBanner(bannerColor);
+        }
+        else
+        {
+            bannerHtml = regularBanner(bannerColor);
+        }
+        jQuery("body").prepend(bannerHtml);
         //shoehorned hook for dynamic banner
         let imgElement = jQuery(".navbar.navbar-default").find("img");
         imgElement.css({visibility: "hidden", opacity: 0});
@@ -308,7 +314,7 @@ function mirrorSocialMediaLinksToMobile() {
 
 function changePlayerPopup(){
     let extPlayer = jQuery(".player_links").children().last();
-    extPlayer.attr("href", "http://mytuner-radio.com/embed/dragon-fm-477414");
+    extPlayer.attr("href", "https://stream-10.pmteurope.com:2000/public/dragonfm");
     extPlayer.children("img").attr("title", "Open speler in nieuw tabblad");
 }
 
@@ -538,3 +544,26 @@ function replaceBanner(url){
             {src: url, "data-src": url});
 }
 
+//shared string
+const bannerStart = '<div id="override-banner" role="banner"';
+const animationFix = '<div class="container" style="position:relative"></div>';
+
+//returns HTML string
+function regularBanner(bannerColor) {
+    return `${bannerStart} style="background: 
+    ${bannerColor}${overSettings.bannerBackgroundImage}
+    ${overSettings.bannerBackgroundPosition}${overSettings.bannerBackgroundSize}
+    ${overSettings.bannerBackgroundRepeat}${overSettings.bannerBackgroundOrigin}
+    ${overSettings.bannerBackgroundClip}${overSettings.bannerBackgroundAttachment}
+    ;">${animationFix}</div>`;
+}
+
+//returns HTML string
+// Specifically for making a two color banner
+function dualColourBanner(bannerColor) {
+    //<div class="banner-half" style="position: absolute;width: 100%;background-color: ${overSettings.bannerBackgroundColor}"></div>
+    return `${bannerStart} style="background: ${bannerColor};">
+    <div class="banner-half" style="position: absolute;width: 100%;background-color: ${overSettings.bannerSecondHalf}"></div>
+    ${animationFix}</div>`;
+    // position of second half is set directly in CSS
+}
