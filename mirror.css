@@ -134,6 +134,7 @@
         height: 100%;
         color:  white;/*#005c9c;*/
         min-width: max(360px, 80vw);
+        max-width: max(360px, 80vw);
         min-height: calc(100vh - (85vw * (264 / 1500)));
         /* Firefox */
         min-height: -moz-calc(100vh - (85vw * (264 / 1500)));
@@ -166,6 +167,10 @@
         display: flex; 
         flex-direction: column; 
         justify-content: center;
+    }
+
+    .dropdown--responsive {
+        width: 75vw;
     }
 }
 
