@@ -144,6 +144,14 @@ bannerBackgroundColor:
 "", //@mainColor
 bannerSecondHalf:
 "", 
+bannerLeftSide:
+["", //top
+"",  //middle
+""], //bottom
+bannerRightSide:
+["", //top
+"",  //middle
+""], //bottom
 bannerBackgroundImage:
 "", //url
 bannerBackgroundPosition:

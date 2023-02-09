@@ -43,22 +43,8 @@ function removeMobileFooterRounding() {
 }
 function fullSizeHeaderBanner() {
     jQuery("header").ready(function(){
-        let bannerColor = overSettings.mainColor;
-        if (overSettings.bannerBackgroundColor !== null 
-            && overSettings.bannerBackgroundColor !== ''){
-            bannerColor = overSettings.bannerBackgroundColor;
-        }
-        let bannerHtml;
-        if (screen.width > 768 
-            && overSettings.bannerSecondHalf !== null
-            && overSettings.bannerSecondHalf !== '' )
-        {
-            bannerHtml = dualColourBanner(bannerColor);
-        }
-        else
-        {
-            bannerHtml = regularBanner(bannerColor);
-        }
+        let bannerHtml = generateBanner(overSettings);
+        console.log("here you are: " + bannerHtml);
         jQuery("body").prepend(bannerHtml);
         //shoehorned hook for dynamic banner
         let imgElement = jQuery(".navbar.navbar-default").find("img");
@@ -108,7 +94,7 @@ function responsiveDesignMenuOverhaul() {
         jQuery("#override-banner").find("img").attr("style", "height: 100%");
         jQuery("#override-banner").find("img").addClass("header-menu-fix");
         jQuery("#override-banner").addClass("sticky-banner");
-        jQuery("#override-banner").children().first().addClass("small--no-padding small--no-margin");
+        jQuery("#override-banner").children(".container").addClass("remove-padding small--no-margin");
         jQuery("#override-banner").append('<button id="mobileNavToggle" class="hamburger-toggler from-medium--hidden"><span></span></button>');
     });
     jQuery(".navbar.navbar-default").css("margin-bottom", "0px");
@@ -544,9 +530,55 @@ function replaceBanner(url){
             {src: url, "data-src": url});
 }
 
+function generateBanner(config) {
+    let bannerColor = config.mainColor;
+    if (config.bannerBackgroundColor !== null 
+        && config.bannerBackgroundColor !== ''){
+        bannerColor = config.bannerBackgroundColor;
+    }
+    let bannerHtml;
+    let left = properColorArray(config.bannerLeftSide);
+    let right = properColorArray(config.bannerRightSide);
+    console.log(left);
+    console.log(right);
+    if (screen.width > 768
+         && config.bannerSecondHalf !== null
+         && config.bannerSecondHalf !== '') 
+    {
+        bannerHtml = dualColourBanner(bannerColor);
+    }
+    else if (screen.width > 768
+        && Math.max(left.length, right.length) > 0) {
+        bannerHtml = complexBanner(left, right);
+        console.log("chose complex");
+    }
+    else {
+        bannerHtml = regularBanner(bannerColor);
+        console.log("chose regular");
+    }
+    return bannerHtml;
+}
+
+// lazy checking of the input array.
+// if the first item is a non-empty string, it will pass, otherwise return empty.
+function properColorArray(input){
+    let result = [];
+    if (input !== null){
+        if (input.length > 0) {
+            if (input[0] !== null && input[0] !== '') {
+                result = input;
+            }
+        }
+    }
+    return result;
+}
+
 //shared string
 const bannerStart = '<div id="override-banner" role="banner"';
 const animationFix = '<div class="container" style="position:relative"></div>';
+const sideHtml = '<div class="banner-stripe"';
+const leftSideHtml = '<div class="banner-stripe--left"';
+const rightSideHtml = '<div class="banner-stripe--right"';
 
 //returns HTML string
 function regularBanner(bannerColor) {
@@ -566,4 +598,53 @@ function dualColourBanner(bannerColor) {
     <div class="banner-half" style="position: absolute;width: 100%;background-color: ${overSettings.bannerSecondHalf}"></div>
     ${animationFix}</div>`;
     // position of second half is set directly in CSS
+}
+
+//!!!!!! so just make the banner flex row, add one flex row container before the image, and one after
+// with the css the stripe heights can be calc bound to match image height
+
+//returns HTML string
+// can make all kinds of banners with evenly spaced colors. 
+// left and right MUST be passed, but either may be an empty array.
+// in such a case, the side with values is presented on both sides
+function complexBanner(left, right) {
+    if (left.length == 0){
+        return multipleColorBothSidesBanner(left, left);
+    }
+    else if (right.length == 0) {
+        return multipleColorBothSidesBanner(left, left);
+    }
+    return multipleColorBothSidesBanner(left, right);
+}
+
+//returns HTML string (helper function)
+// 
+function multipleColorBanner(colors) {
+    let rows = '';
+    for (let i = 0; i < colors.length; i++) {
+        rows += `${sideHtml} style="background-color: ${colors[i]}"></div>`;
+    }  
+    console.log(rows);
+    return `${bannerStart} style="display: table;">
+    ${rows}${animationFix}</div>`;
+}
+
+//returns HTML string (helper function)
+// 
+function multipleColorBothSidesBanner(left, right) {
+    let leftSide = '';
+    jQuery(":root").css("--left-banner-items", left.length);
+    for (let i = 0; i < left.length; i++) {
+        leftSide += `${leftSideHtml} style="background-color: ${left[i]}"></div>`;
+    }
+    let rightSide = '';
+    jQuery(":root").css("--right-banner-items", right.length);
+    for (let i = 0; i < right.length; i++) {
+        rightSide += `${rightSideHtml} style="background-color: ${right[i]}"></div>`;
+    }
+    return `${bannerStart}style="display: flex; flex-direction: row align-items: stretch;">
+    <div class="banner-side">${leftSide}</div>
+    ${animationFix}
+    <div class="banner-side">${rightSide}</div>
+    </div>`;
 }
