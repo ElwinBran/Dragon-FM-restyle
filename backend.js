@@ -44,7 +44,6 @@ function removeMobileFooterRounding() {
 function fullSizeHeaderBanner() {
     jQuery("header").ready(function(){
         let bannerHtml = generateBanner(overSettings);
-        console.log("here you are: " + bannerHtml);
         jQuery("body").prepend(bannerHtml);
         //shoehorned hook for dynamic banner
         let imgElement = jQuery(".navbar.navbar-default").find("img");
@@ -337,11 +336,13 @@ function footerSetup(){
 
 /*==== helper functions ====*/
 // tasks: a list of functions to perform
+// used to easily execute 'features' to apply to the website: groups of functions
 function override(tasks) {
     jQuery(tasks).each(function(key, val){
         val();
     });
 }
+
 // Required global variables for the new player display.
 var artist;
 var song;
@@ -364,10 +365,9 @@ function fetchSongInformation(onCompletion) {
         });
 }
 function extractSongDetailInformation(html){
-    let songDisplayStartIndex = html.lastIndexOf('">') + 2;
-    let alternateIndex = html.indexOf("'>") + 2;
+    let songDisplayStartIndex = html.indexOf("'>") + 2;
     let songDisplayEndIndex = html.indexOf("</marq");
-    let information = html.substring(alternateIndex, songDisplayEndIndex + 1);
+    let information = html.substring(songDisplayStartIndex, songDisplayEndIndex + 1);
     return information;
 }
 // Sets song information global variables based on song input
@@ -539,8 +539,6 @@ function generateBanner(config) {
     let bannerHtml;
     let left = properColorArray(config.bannerLeftSide);
     let right = properColorArray(config.bannerRightSide);
-    console.log(left);
-    console.log(right);
     if (screen.width > 768
          && config.bannerSecondHalf !== null
          && config.bannerSecondHalf !== '') 
@@ -550,11 +548,9 @@ function generateBanner(config) {
     else if (screen.width > 768
         && Math.max(left.length, right.length) > 0) {
         bannerHtml = complexBanner(left, right);
-        console.log("chose complex");
     }
     else {
         bannerHtml = regularBanner(bannerColor);
-        console.log("chose regular");
     }
     return bannerHtml;
 }
@@ -623,8 +619,7 @@ function multipleColorBanner(colors) {
     let rows = '';
     for (let i = 0; i < colors.length; i++) {
         rows += `${sideHtml} style="background-color: ${colors[i]}"></div>`;
-    }  
-    console.log(rows);
+    }
     return `${bannerStart} style="display: table;">
     ${rows}${animationFix}</div>`;
 }
