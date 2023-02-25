@@ -553,4 +553,9 @@ article.type-post {
     width: -o-calc((100vw - var(--preset-container-width)) / 2);
     height: calc((var(--banner-original-height) * (var(--preset-container-width) / var(--banner-original-width))) / var(--right-banner-items));
     /*height: -webkit-fill-available;*/
+<<<<<<< HEAD
+=======
+}
+    }
+>>>>>>> ebbda35eec446b7ea28714cddb2bc38c1c8e7d64
 }
