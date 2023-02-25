@@ -6,8 +6,7 @@
 /*==== feature functions ====*/
 function recenterChatButton() {
     let buttonContainer = jQuery(".widget_default_blok_2").find(".widget_button");
-    buttonContainer.css("background-size", "cover");
-    buttonContainer.find(".widget_button_tekst").css("width", "288px");
+    buttonContainer.addClass("chat-button-fix")
 }
 function addPlayerRounding() {
     jQuery("#sidebar-left").children(".widget_default_blok_1").
@@ -75,9 +74,8 @@ function moveChatWidgetIntoPlayer() {
     chatBlock.remove();
 }
 function restyleClockResponsive() {
-    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass(overSettings.clockClasses);
-    jQuery("#sidebar-left").find(".PMT_KLOK_widget").children().first().css(
-        {"color": overSettings.clockTextColor, "font-size": overSettings.clockFontSize});
+    let classes = ["medium--white-background", "medium--black-text"];
+    jQuery("#sidebar-left").find(".PMT_KLOK_widget").first().addClass(classes);
 }
 function changeChatButtonText() {
     let buttonContainer = jQuery(".widget_default_blok_2").find(".widget_button");
@@ -101,22 +99,8 @@ function responsiveDesignMenuOverhaul() {
         jQuery(".navbar-primary-collapse").addClass("small--display-block");//override collapse function
     });
     jQuery("#menu-menu-1").ready(() => {
-        if (screen.width <= 768){
-            let menuColor = overSettings.mainColor;
-            if(overSettings.mobileMenuColor !== null && overSettings.mobileMenuColor !== '') {
-                menuColor = overSettings.mobileMenuColor;
-            }
-            jQuery("#menu-menu-1").wrap(
-                `<div id="navigationMenu" style="background-color:${menuColor};">
-                    <section class="navigation__menu"></section>
-                </div>`);
-        }
-        else {
-            jQuery("#menu-menu-1").wrap(
-                `<div id="navigationMenu">
-                    <section class="navigation__menu"></section>
-                </div>`);
-        }
+        jQuery("#menu-menu-1").wrap(
+            `<div id="navigationMenu"><section class="navigation__menu"></section></div>`);
     });
     var menuSelector = undefined;
     // automatic styling through sheet on #navigationmenu
@@ -135,17 +119,12 @@ function responsiveDesignMenuOverhaul() {
                 jQuery(element).removeAttr("data-dropdown");
                 jQuery(element).attr("data-toggle", "collapse");
                 jQuery(element).children("ul").addClass("collapse dropdown--responsive");
-                let dropColor = overSettings.mainColor;
-                if(overSettings.dropdownColor !== null && overSettings.dropdownColor !== '') {
-                    dropColor = overSettings.dropdownColor;
-                }
-                jQuery(element).find("li").addClass("dropdown__item--responsive")
-                .css("background-color", dropColor);
+                jQuery(element).find("li").addClass("dropdown__item--responsive");
                 let displayText = jQuery(element).children("a").text();
                 let hyperlink = jQuery(element).children("a").attr("href");
                 jQuery(element).children("a").replaceWith(`<a><div style="display:inline-block" 
                 onclick="location = '${hyperlink}'"> ${displayText}</div>
-                    <span style="display: inline-block; margin-top: ${overSettings.mmFoldMarTop}; float: right; transition: ${overSettings.mmFoldTrans};" class="caret" onclick="jQuery(this).toggleClass('rotate--half')"></span> </a>`);
+                    <span class="caret mobile-menu__fold" onclick="jQuery(this).toggleClass('rotate--half')"></span> </a>`);
                 jQuery(element).children("ul").removeClass("dropdown-menu");
                 jQuery(element).find("li").css("display", "block");
             }
@@ -210,25 +189,11 @@ function removeRegularMobileChat() {
     jQuery("#sidebar-left > .widget_default_blok_1 > .widget_default_blok_2").addClass("small--hidden");
 }
 function addFloatingChatButton() {
-    let fabCustom = "";
-    if (overSettings.fabBackground.length > 0)
-    {
-        fabCustom = 'style="color:' + overSettings.fabBackground + ';" ';
-    }
-    let symbolColor = "currentColor";
-    if (overSettings.fabChatSymbolColor.length > 0)
-    {
-        symbolColor = overSettings.fabChatSymbolColor;
-    }
-    else
-    {
-        symbolColor = overSettings.socialSymbolsColor;
-    }
-    jQuery("footer.site-footer").before(`<a id="floatingChatButton" ${fabCustom}
-                class="${overSettings.fabClasses}" 
+    jQuery("footer.site-footer").before(
+        `<a id="floatingChatButton" class="button--highlight center-contents from-medium--hidden" 
                 href="/chatroom" onclick="window.open(this.href, this.target,
                      \'toolbar=0,location=0,menubar=0,scrollbars=0,resizable=0\'); return false;">
-                     <svg style="fill:${symbolColor}"class="social-bar__symbol" 
+                     <svg "class="social-bar__symbol" 
                      preserveAspectRatio="xMidYMid meet" x="20px" y="25%" width="35px" height="22px" version="2.0">
             <use href="#speechbubble-symbol"/>
         </svg></a>`);
@@ -245,11 +210,7 @@ var mobileFooterPlayerBreakpoint = 769;//TODO
 function replaceIFrameMarquee() {
     jQuery(".now_playing_scroler").replaceWith(
     `<div id="songContainerTop" class="now_playing_scroler player-widget__display">
-    <span id="songDisplayTop" 
-    style="font-family:${overSettings.songInfoFontFamily};
-    font-size:${overSettings.songInfoFontSize};
-    color:${overSettings.songInfoTextColor} !important;
-    font-style:${overSettings.songInfoFontStyle};">Ophalen...</span></div>`);
+    <span id="songDisplayTop">Ophalen...</span></div>`);
 }
 function reinstateSongInformationUpdate(){
     syncSongInformation();
@@ -308,6 +269,16 @@ function removeITunes(){
 }
 
 /*==== generic setting features ====*/
+function initizializeStyleVars(){
+    let styles = overSettings.presetStyling;
+    for (let i = 0; i < styles.length; i++) {
+        let value =  jQuery(styles[i].selector).css(styles[i].property);
+        if (value != null){
+            jQuery(":root").css(styles[i].variable, value);
+        }
+    }
+}
+
 //NOTE: these can later be used as 'bootstrappers' to reduce overhead and merge functions
 function bodySetup(){
     jQuery("body").css("color", overSettings.textColor);
@@ -315,11 +286,6 @@ function bodySetup(){
 
 function contentSetup(){
     //when content (article content) ready:
-    if (overSettings.kcTextColor =! "black"){
-        jQuery("#main").ready(function(){
-            jQuery("#main").find(".kc_text_block > p").css("color", overSettings.kcTextColor);
-        });
-    }
 }
 
 function footerSetup(){
@@ -328,9 +294,7 @@ function footerSetup(){
         if (overSettings.footerColor !== null && overSettings.footerColor !== ''){
             footerCol = overSettings.footerColor;
         }
-        jQuery("#footer-row").attr('style', 'background-color:' + footerCol +
-             '!important');
-        //jQuery("#footer-row").css("background-color", )
+        jQuery("#footer-row").attr('style', 'background-color:' + footerCol + '!important');
     });
 }
 
@@ -550,7 +514,7 @@ function generateBanner(config) {
         bannerHtml = complexBanner(left, right);
     }
     else {
-        bannerHtml = regularBanner(bannerColor);
+        bannerHtml = regularBanner();
     }
     return bannerHtml;
 }
@@ -577,15 +541,11 @@ const leftSideHtml = '<div class="banner-stripe--left"';
 const rightSideHtml = '<div class="banner-stripe--right"';
 
 //returns HTML string
-function regularBanner(bannerColor) {
-    return `${bannerStart} style="background: 
-    ${bannerColor}${overSettings.bannerBackgroundImage}
-    ${overSettings.bannerBackgroundPosition}${overSettings.bannerBackgroundSize}
-    ${overSettings.bannerBackgroundRepeat}${overSettings.bannerBackgroundOrigin}
-    ${overSettings.bannerBackgroundClip}${overSettings.bannerBackgroundAttachment}
-    ;">${animationFix}</div>`;
+function regularBanner() {
+    return `${bannerStart}>${animationFix}</div>`;
 }
 
+// @ deprecate?
 //returns HTML string
 // Specifically for making a two color banner
 function dualColourBanner(bannerColor) {

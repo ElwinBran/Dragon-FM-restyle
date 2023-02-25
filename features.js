@@ -1,7 +1,7 @@
 // all the different feature functions here
 
 var bodyFeatures = [removeMobileBodyPadding, removeBodyOnlyMargin];
-var headerFeatures = [fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
+var headerFeatures = [initizializeStyleVars, fullSizeHeaderBanner, setViewToPageTop, responsiveDesignMenuOverhaul];
 var playerFeatures = [removeMobilePlayerPadding, removeAlternateSourcesMobile, recenterChatButton, moveClockIntoPlayer, 
     moveChatWidgetIntoPlayer, addPlayerRounding, restyleClockResponsive, changeChatLabelText, changeChatButtonText, replaceIFrameMarquee, 
     reinstateSongInformationUpdate, setUpDynamicBanner, changePlayerPopup, removeITunes];

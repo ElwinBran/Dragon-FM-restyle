@@ -8,8 +8,8 @@ Script window is 21 characters wide at best, so use that.
 */
 const overSettings = {
 // - Main settings:
-mainColor: "#57007f",
-
+mainColor: 
+"#57007f",
 textColor:
 "#333",
 kcTextColor:
@@ -25,18 +25,6 @@ chatButtonText:
  "Chat gezellig mee!",
 chatPromptLabelText:
  "DragonFM Chat",
-// - FAB chat button:
-fabBackground:
-"", //set color
-fabClasses:
-"button--highlight center-contents from-medium--hidden",
-fabChatSymbolColor:
-"", //@socialSymbolsColor
-// - Footer:
-footerColor:
-"", //@mainColor
-footerSymbolColor:
-"", //@socialSymbolsColor
 
 // - Programma banner
 bannerSwitching: 
@@ -84,32 +72,10 @@ bannerLinks: [
 "19-Toen-Show.png"]
 ],
 // - Mobile Menu:
-hamburgerBeamWidth: 
-"36px",
-hamburgerBeamHeight: 
-"4.5px",
 mobileBannerImageWidth: 
 "85%",
-mobileMenuColor:
-"", //@mainColor
-mobileMenuTextColor:
-"white",
 mmSocialColor:
 "", //@socialSymbolsColor
-mmSocialWidthHeight:
-"53px",
-mmSocialPadding:
-"2px",
-mmSocialMargin:
-"5px",
-mmSocialExtraStyle:
-"",
-mmFoldTrans:
-"transform .3s ease-out",
-mmFoldMarTop:
-"8px",
-mmFoldAddition:
-"",
 
 //- Song Information:
 songInfoRefresh: 
@@ -120,24 +86,6 @@ songInfoScrollSpeed:
 "5", //geheel getal
 songInfoScrollDirection: 
 "left",
-songInfoFontFamily: 
-"verdana, arial, Helvetica, sans-serif",
-songInfoFontSize: 
-"1.4em",
-songInfoTextColor: 
-"#ffffff",
-songInfoFontStyle: 
-"italic",
-songInfoBackground: 
-"transparent",
-
-// - Clock
-clockTextColor:
-"", 
-clockFontSize:
-"2em", 
-clockClasses:
-"medium--white-background medium--black-text",
 
 // - Top bars
 bannerBackgroundColor:
@@ -152,23 +100,22 @@ bannerRightSide:
 ["", //top
 "",  //middle
 ""], //bottom
-bannerBackgroundImage:
-"", //url
-bannerBackgroundPosition:
-"", //%, px, or left/right/center/bottom/top
-bannerBackgroundSize:
-"", 
-bannerBackgroundRepeat:
-"", 
-bannerBackgroundOrigin:
-"", 
-bannerBackgroundClip:
-"", 
-bannerBackgroundAttachment:
-"", //scroll fixed etc.
 
-// - Miscellaneous:
+// - Build-in:
 songInfoDownload:
 "https://dragonfm.nl/wp-content/themes/Radio2/IcecastHK-Curent-song.php", //url
-
+presetStyling:[
+{selector:
+".navbar",
+property:
+"min-height",
+variable:
+"--preset-navbar-min-height"},
+{selector:
+".container",
+property:
+"width",
+variable:
+"--preset-container-width"},
+]
 };
