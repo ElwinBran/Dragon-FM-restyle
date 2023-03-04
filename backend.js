@@ -47,7 +47,6 @@ function fullSizeHeaderBanner() {
         //shoehorned hook for dynamic banner
         let imgElement = jQuery(".navbar.navbar-default").find("img");
         imgElement.css({visibility: "hidden", opacity: 0});
-        defaultBanner = imgElement.attr("src");
         imgElement.appendTo("#override-banner > .container");
         jQuery("header").removeAttr("role");
         jQuery(".row.row-with-vspace.site-branding").remove();
@@ -206,7 +205,6 @@ function removeAlternateSourcesMobile() {
 var isNewSongPlaying = false;
 var mobileFooterPlayerBreakpoint = 769;//TODO
 
-
 function replaceIFrameMarquee() {
     jQuery(".now_playing_scroler").replaceWith(
     `<div id="songContainerTop" class="now_playing_scroler player-widget__display">
@@ -228,12 +226,10 @@ function animateSongInformationSimple(){
         }
     }, 1000);  
 }
-
 function removeFormMargin() {
     jQuery(".form-group").addClass("input-container clearfix")
                          .removeClass("form-group");
 }
-
 function ensureNewsArticleOverride() {
     if (jQuery("body").hasClass("post-template-default"))
     {
@@ -241,7 +237,6 @@ function ensureNewsArticleOverride() {
         override(articleFeatures); //idem, these are specific to articles
     }
 }
-
 function setUpDynamicBanner() {
     if (overSettings.bannerSwitching) {
         fillBannerLookup();
@@ -250,22 +245,57 @@ function setUpDynamicBanner() {
         });
     }
 }
-
 function mirrorSocialMediaLinksToMobile() {
     jQuery("footer").ready(function(){
         jQuery("#mobileMenuSocialIconHolder").append(jQuery(".social-bar").children().clone());
         jQuery("#mobileMenuSocialIconHolder").children().css("background-color", "transparent");
     });
 }
-
 function changePlayerPopup(){
     let extPlayer = jQuery(".player_links").children().last();
     extPlayer.attr("href", "https://stream-10.pmteurope.com:2000/public/dragonfm");
     extPlayer.children("img").attr("title", "Open speler in nieuw tabblad");
 }
-
 function removeITunes(){
     jQuery(".player_links").children().eq(2).remove();
+}
+function addMobilePlayer() {
+    if(jQuery("body").hasClass("home")) {//remember add negation
+        jQuery(".container.page-container").before(`<footer id="mobilePlayer" class="player-footer">
+        <div id="artistNameContainer" class="player-footer__display">
+            <span id="artistNameDisplay"></span>
+        </div>
+        <div id="songTitleContainer" class="player-footer__display">
+        <span id="songTitleDisplay"></span></footer>
+        </div>`);
+        jQuery("#jp_interface_1").addClass("player-widget__button");
+        //
+        /////// Surgical operation
+        //
+        jQuery("#playbtn").addClass("play-button--transparent");
+        jQuery("#stopbtn").addClass("pause-button--transparent");
+        //jQuery("footer.site-footer").addClass("footer-player-dock");
+        addMobilePlayerScroll();
+    }
+}
+
+THE TRICK IS TO SET THE Z-INDEX OF THE SIDEBAR
+function removeSidebarForMobile(){
+    if(jQuery("body").hasClass("home")) {//remember add negation
+        //jQuery("#songContainerTop").ready(function(){
+        jQuery("#songContainerTop").addClass("small--hidden");
+        //});
+        jQuery(".now_playing_scroler.lazyloaded").addClass("small--hidden");
+        jQuery(".PMT_KLOK_widget").addClass("small--hidden");
+        jQuery(".DJ_planner_1").addClass("small--hidden");
+        jQuery("#sidebar-left > .widget_default_blok_1 > .uppercase").addClass("small--hidden");
+        let queryCache = jQuery("#sidebar-left > .widget_default_blok_1");
+        queryCache.addClass("widget_default_blok_1--hide-mobile");
+        queryCache = queryCache.children(".widget_default_blok_1");
+        queryCache.children("div").first().addClass("small--hidden");
+        queryCache.addClass("widget_default_blok_1--hide-mobile");
+        
+    }
 }
 
 /*==== generic setting features ====*/
@@ -378,7 +408,41 @@ function marqueeReplacementAnimationLoop(){
     });
 }
 
-var defaultBanner; //load from start html, set in banner override
+// Simply adds a scroll function for managing the docking of the mobile player and managing chat button position.
+function addMobilePlayerScroll(){
+    jQuery(window).scroll(function(){
+        //if(window.innerWidth < mobileFooterPlayerBreakpoint){
+            let playerHeight = jQuery('#mobilePlayer').outerHeight();
+            let position =  jQuery(window).scrollTop() + $(window).innerHeight();
+            let condition = jQuery('#footer-row').offset().top;
+            let difference = position - condition;
+            if(position > condition){
+                //jQuery("#mobilePlayer").css("bottom", (difference - 1) + "px");//maybe add one for line prevention?
+                //jQuery("#mobilePlayer").addClass("player-footer--docked");
+                //jQuery("#mobilePlayer").css("z-index", "-1");
+                jQuery("#jp_interface_1").css("bottom", (
+                    difference + (playerHeight/2 - 50)) + 
+                    "px");
+                let factor = (playerHeight + 16)/2 - 6;//notice, 12/2 = 6, has to do with custom as well.
+                if (difference < 91) { //ensure custom is possible.
+                    jQuery("#floatingChatButton").css("bottom", (
+                        factor * Math.cos(0.035 * difference) + factor + 12
+                    ) + "px");//pre calculated period variable, has to do with button size.
+                } else {
+                    jQuery("#floatingChatButton").css("bottom", "12px");//not sure
+                }
+            }
+            else{
+                //jQuery("#mobilePlayer").css("bottom", "0px")
+                //jQuery("#mobilePlayer").removeClass("player-footer--docked");
+                //jQuery("#mobilePlayer").css("z-index", "950");
+                jQuery("#jp_interface_1").css("bottom", "");
+                jQuery("#floatingChatButton").css("bottom", (playerHeight + 16) + "px"); 
+            }
+        //}
+    });
+}
+
 var bannerLookup;
 //showtime-now-playing .children()[0]. text();
 //get text, remove until second colon + 1 (space) 
@@ -457,39 +521,6 @@ function getShowIndex(showDisplayText){
 
 function replaceBanner(url){
     let bannerImage = jQuery("#override-banner").find("img");
-    if (isInitial)
-    {
-        bannerImage.attr(
-            {src: url, "data-src": url});
-        bannerImage.removeAttr("style");
-        bannerImage.css({"opacity": 0,
-            height: "100%", transition: "opacity 800ms"});
-        //remove visibility
-        //set opacity 1.0
-        //clone
-        jQuery("#override-banner > .container").append(bannerImage.clone())
-        bannerImage.first().css("position", "absolute").css("opacity", 1);
-        bannerImage.addClass("banner");
-        isInitial = false;
-        setTimeout(function(){
-            jQuery("#override-banner").find("img").eq(1).css("opacity", 1);
-        }, 15000);
-    }
-    else 
-    {
-        let bottomImage = bannerImage.eq(1)
-        if(bottomImage.attr("src") == url){
-            return;
-        }
-        bottomImage.attr({src: url, "data-src": url});
-        let topImage = bannerImage.first();
-        topImage.css("opacity", 0);
-        setTimeout(function(){
-            topImage.attr({src: url, "data-src": url});
-            topImage.css("opacity", 1);
-        }, 15000);
-        //set timeout
-    }
     jQuery("#override-banner").find("img").attr(
             {src: url, "data-src": url});
 }
